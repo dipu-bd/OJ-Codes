@@ -1,0 +1,27 @@
+1
+A N-K
+B Z-I
+C A+N 21
+D Y-W
+E R+P 8
+F I+U
+G Y+I 39
+H Q+R
+I I/R 2
+J Q-W 22
+K I+P
+L L*R
+M H-F
+N E+P
+O C-V 5
+P P/R
+Q L-I
+R H-Q
+S F+W
+T Y-B
+U G-J
+V V*R
+W X-C
+X N+V
+Y G-I
+Z C+P

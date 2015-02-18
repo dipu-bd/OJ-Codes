@@ -1,0 +1,102 @@
+READ
+POP num
+PUSH 2
+POP x
+PUSH num
+PUSH 2
+SUB
+JUMPPOS 31
+PUSH num
+PUSH x
+SUB
+DUP
+JUMPZERO 28
+JUMPPOS 28
+PUSH x
+PUSH num
+DIV
+PUSH x
+MUL
+PUSH num
+SUB
+JUMPZERO 31
+PUSH x
+PUSH 1
+ADD
+POP x
+JUMP 9
+PUSH 1
+WRITE
+JUMP 33
+PUSH 0
+WRITE
+#
+7 
+#
+READ
+READ
+DIV
+WRITE
+JUMP 1
+#
+5
+25
+25
+5
+0
+1
+7
+8
+#
+PUSH 0
+POP m
+PUSH 10
+DUP
+PUSH m
+ADD
+DUP
+POP m
+WRITE
+POP temp
+PUSH 1
+PUSH temp
+SUB
+DUP
+JUMPPOS 4
+#
+#
+PUSH undefined
+WRITE
+#
+#
+READ
+POP defined
+PUSH defined
+WRITE
+#
+-14
+#
+PUSH -7
+PUSH 1
+ADD
+WRITE
+#
+#
+READ
+    POP    defined
+PUSH defined
+   WRITE
+#
+1
+#
+# 
+#
+READ
+777 good luck!
+POP defined
+PUSH defined
+WRITE
+#
+1
+#  
+ 

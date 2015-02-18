@@ -1,0 +1,222 @@
+1 = 0
+2 = 0
+gcd(3, 2) = 1; 3(x)2 = 1 | matched
+3 = 1
+4 = 0
+gcd(5, 4) = 1; 5(x)4 = 1 | matched
+5 = 1
+gcd(6, 4) = 2; 6(x)4 = 2 | matched
+6 = 1
+gcd(7, 6) = 1; 7(x)6 = 1 | matched
+7 = 1
+8 = 0
+gcd(9, 8) = 1; 9(x)8 = 1 | matched
+9 = 1
+gcd(10, 8) = 2; 10(x)8 = 2 | matched
+10 = 1
+gcd(11, 10) = 1; 11(x)10 = 1 | matched
+11 = 1
+gcd(12, 8) = 4; 12(x)8 = 4 | matched
+12 = 1
+gcd(13, 12) = 1; 13(x)12 = 1 | matched
+13 = 1
+gcd(14, 12) = 2; 14(x)12 = 2 | matched
+14 = 1
+gcd(15, 10) = 5; 15(x)10 = 5 | matched
+gcd(15, 12) = 3; 15(x)12 = 3 | matched
+gcd(15, 14) = 1; 15(x)14 = 1 | matched
+15 = 3
+16 = 0
+gcd(17, 16) = 1; 17(x)16 = 1 | matched
+17 = 1
+gcd(18, 16) = 2; 18(x)16 = 2 | matched
+18 = 1
+gcd(19, 18) = 1; 19(x)18 = 1 | matched
+19 = 1
+gcd(20, 16) = 4; 20(x)16 = 4 | matched
+20 = 1
+gcd(21, 20) = 1; 21(x)20 = 1 | matched
+21 = 1
+gcd(22, 20) = 2; 22(x)20 = 2 | matched
+22 = 1
+gcd(23, 22) = 1; 23(x)22 = 1 | matched
+23 = 1
+gcd(24, 16) = 8; 24(x)16 = 8 | matched
+24 = 1
+gcd(25, 24) = 1; 25(x)24 = 1 | matched
+25 = 1
+gcd(26, 24) = 2; 26(x)24 = 2 | matched
+26 = 1
+gcd(27, 18) = 9; 27(x)18 = 9 | matched
+gcd(27, 24) = 3; 27(x)24 = 3 | matched
+gcd(27, 26) = 1; 27(x)26 = 1 | matched
+27 = 3
+gcd(28, 24) = 4; 28(x)24 = 4 | matched
+28 = 1
+gcd(29, 28) = 1; 29(x)28 = 1 | matched
+29 = 1
+gcd(30, 20) = 10; 30(x)20 = 10 | matched
+gcd(30, 24) = 6; 30(x)24 = 6 | matched
+gcd(30, 28) = 2; 30(x)28 = 2 | matched
+30 = 3
+gcd(31, 30) = 1; 31(x)30 = 1 | matched
+31 = 1
+32 = 0
+gcd(33, 32) = 1; 33(x)32 = 1 | matched
+33 = 1
+gcd(34, 32) = 2; 34(x)32 = 2 | matched
+34 = 1
+gcd(35, 34) = 1; 35(x)34 = 1 | matched
+35 = 1
+gcd(36, 32) = 4; 36(x)32 = 4 | matched
+36 = 1
+gcd(37, 36) = 1; 37(x)36 = 1 | matched
+37 = 1
+gcd(38, 36) = 2; 38(x)36 = 2 | matched
+38 = 1
+gcd(39, 36) = 3; 39(x)36 = 3 | matched
+gcd(39, 38) = 1; 39(x)38 = 1 | matched
+39 = 2
+gcd(40, 32) = 8; 40(x)32 = 8 | matched
+40 = 1
+gcd(41, 40) = 1; 41(x)40 = 1 | matched
+41 = 1
+gcd(42, 40) = 2; 42(x)40 = 2 | matched
+42 = 1
+gcd(43, 42) = 1; 43(x)42 = 1 | matched
+43 = 1
+gcd(44, 40) = 4; 44(x)40 = 4 | matched
+44 = 1
+gcd(45, 36) = 9; 45(x)36 = 9 | matched
+gcd(45, 40) = 5; 45(x)40 = 5 | matched
+gcd(45, 44) = 1; 45(x)44 = 1 | matched
+45 = 3
+gcd(46, 44) = 2; 46(x)44 = 2 | matched
+46 = 1
+gcd(47, 46) = 1; 47(x)46 = 1 | matched
+47 = 1
+gcd(48, 32) = 16; 48(x)32 = 16 | matched
+48 = 1
+gcd(49, 48) = 1; 49(x)48 = 1 | matched
+49 = 1
+gcd(50, 48) = 2; 50(x)48 = 2 | matched
+50 = 1
+gcd(51, 34) = 17; 51(x)34 = 17 | matched
+gcd(51, 48) = 3; 51(x)48 = 3 | matched
+gcd(51, 50) = 1; 51(x)50 = 1 | matched
+51 = 3
+gcd(52, 48) = 4; 52(x)48 = 4 | matched
+52 = 1
+gcd(53, 52) = 1; 53(x)52 = 1 | matched
+53 = 1
+gcd(54, 36) = 18; 54(x)36 = 18 | matched
+gcd(54, 48) = 6; 54(x)48 = 6 | matched
+gcd(54, 52) = 2; 54(x)52 = 2 | matched
+54 = 3
+gcd(55, 50) = 5; 55(x)50 = 5 | matched
+gcd(55, 54) = 1; 55(x)54 = 1 | matched
+55 = 2
+gcd(56, 48) = 8; 56(x)48 = 8 | matched
+56 = 1
+gcd(57, 56) = 1; 57(x)56 = 1 | matched
+57 = 1
+gcd(58, 56) = 2; 58(x)56 = 2 | matched
+58 = 1
+gcd(59, 58) = 1; 59(x)58 = 1 | matched
+59 = 1
+gcd(60, 40) = 20; 60(x)40 = 20 | matched
+gcd(60, 48) = 12; 60(x)48 = 12 | matched
+gcd(60, 56) = 4; 60(x)56 = 4 | matched
+60 = 3
+gcd(61, 60) = 1; 61(x)60 = 1 | matched
+61 = 1
+gcd(62, 60) = 2; 62(x)60 = 2 | matched
+62 = 1
+gcd(63, 42) = 21; 63(x)42 = 21 | matched
+gcd(63, 54) = 9; 63(x)54 = 9 | matched
+gcd(63, 56) = 7; 63(x)56 = 7 | matched
+gcd(63, 60) = 3; 63(x)60 = 3 | matched
+gcd(63, 62) = 1; 63(x)62 = 1 | matched
+63 = 5
+64 = 0
+gcd(65, 64) = 1; 65(x)64 = 1 | matched
+65 = 1
+gcd(66, 64) = 2; 66(x)64 = 2 | matched
+66 = 1
+gcd(67, 66) = 1; 67(x)66 = 1 | matched
+67 = 1
+gcd(68, 64) = 4; 68(x)64 = 4 | matched
+68 = 1
+gcd(69, 68) = 1; 69(x)68 = 1 | matched
+69 = 1
+gcd(70, 68) = 2; 70(x)68 = 2 | matched
+70 = 1
+gcd(71, 70) = 1; 71(x)70 = 1 | matched
+71 = 1
+gcd(72, 64) = 8; 72(x)64 = 8 | matched
+72 = 1
+gcd(73, 72) = 1; 73(x)72 = 1 | matched
+73 = 1
+gcd(74, 72) = 2; 74(x)72 = 2 | matched
+74 = 1
+gcd(75, 72) = 3; 75(x)72 = 3 | matched
+gcd(75, 74) = 1; 75(x)74 = 1 | matched
+75 = 2
+gcd(76, 72) = 4; 76(x)72 = 4 | matched
+76 = 1
+gcd(77, 76) = 1; 77(x)76 = 1 | matched
+77 = 1
+gcd(78, 72) = 6; 78(x)72 = 6 | matched
+gcd(78, 76) = 2; 78(x)76 = 2 | matched
+78 = 2
+gcd(79, 78) = 1; 79(x)78 = 1 | matched
+79 = 1
+gcd(80, 64) = 16; 80(x)64 = 16 | matched
+80 = 1
+gcd(81, 80) = 1; 81(x)80 = 1 | matched
+81 = 1
+gcd(82, 80) = 2; 82(x)80 = 2 | matched
+82 = 1
+gcd(83, 82) = 1; 83(x)82 = 1 | matched
+83 = 1
+gcd(84, 80) = 4; 84(x)80 = 4 | matched
+84 = 1
+gcd(85, 68) = 17; 85(x)68 = 17 | matched
+gcd(85, 80) = 5; 85(x)80 = 5 | matched
+gcd(85, 84) = 1; 85(x)84 = 1 | matched
+85 = 3
+gcd(86, 84) = 2; 86(x)84 = 2 | matched
+86 = 1
+gcd(87, 84) = 3; 87(x)84 = 3 | matched
+gcd(87, 86) = 1; 87(x)86 = 1 | matched
+87 = 2
+gcd(88, 80) = 8; 88(x)80 = 8 | matched
+88 = 1
+gcd(89, 88) = 1; 89(x)88 = 1 | matched
+89 = 1
+gcd(90, 72) = 18; 90(x)72 = 18 | matched
+gcd(90, 80) = 10; 90(x)80 = 10 | matched
+gcd(90, 88) = 2; 90(x)88 = 2 | matched
+90 = 3
+gcd(91, 90) = 1; 91(x)90 = 1 | matched
+91 = 1
+gcd(92, 88) = 4; 92(x)88 = 4 | matched
+92 = 1
+gcd(93, 92) = 1; 93(x)92 = 1 | matched
+93 = 1
+gcd(94, 92) = 2; 94(x)92 = 2 | matched
+94 = 1
+gcd(95, 76) = 19; 95(x)76 = 19 | matched
+gcd(95, 90) = 5; 95(x)90 = 5 | matched
+gcd(95, 94) = 1; 95(x)94 = 1 | matched
+95 = 3
+gcd(96, 64) = 32; 96(x)64 = 32 | matched
+96 = 1
+gcd(97, 96) = 1; 97(x)96 = 1 | matched
+97 = 1
+gcd(98, 96) = 2; 98(x)96 = 2 | matched
+98 = 1
+gcd(99, 66) = 33; 99(x)66 = 33 | matched
+gcd(99, 96) = 3; 99(x)96 = 3 | matched
+gcd(99, 98) = 1; 99(x)98 = 1 | matched
+99 = 3

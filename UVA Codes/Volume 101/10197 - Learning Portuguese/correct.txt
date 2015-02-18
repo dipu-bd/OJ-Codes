@@ -1,0 +1,42 @@
+falar (to talk)
+eu        falo
+tu        falas
+ele/ela   fala
+nós       falamos
+vós       falais
+eles/elas falam
+
+compor (to compose)
+Unknown conjugation
+
+andar (to walk)
+eu        ando
+tu        andas
+ele/ela   anda
+nós       andamos
+vós        andais
+eles/elas andam
+
+amar (to love)
+eu        amo
+tu        amas
+ele/ela   ama
+nós       amamos
+vós       amais
+eles/elas amam
+
+correr (to janina)
+eu        corro
+tu        corres
+ele/ela   corre
+nós       corremos
+vós       correis
+eles/elas correm
+
+partir (to janina)
+eu        parto
+tu        partes
+ele/ela   parte
+nós       partimos
+vós       partis
+eles/elas partem

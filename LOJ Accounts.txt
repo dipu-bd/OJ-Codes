@@ -1,0 +1,8 @@
+USER = USERID           | PASS
+==========================================
+Nafis Vai = 1100        | qwerty
+Shakil Vai = 1099       | kanzaki
+Rumman Vai = 4161       | anda=1^1
+Dipu = 10692            | dipu_sust
+Olee = 10127            | 160887
+Bishwajit = 10962       | bishwa_sust

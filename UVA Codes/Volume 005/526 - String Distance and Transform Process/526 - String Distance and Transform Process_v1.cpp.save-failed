@@ -1,0 +1,152 @@
+/*============================
+ /\u7h0r : 5ud!p70 ch@ndr@ d@5
+ =============================*/
+//C headers
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <limits.h>
+#include <ctype.h>
+#include <assert.h>
+//cpp headers
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <algorithm>
+#include <vector>
+#include <queue>
+#include <set>
+#include <map>
+#include <stack>
+#include <deque>
+#include <list>
+//#include <bitset>
+using namespace std;
+//typedefs
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vii;
+//always useful
+#define gcd(a,b) __gcd(a,b)
+#define clr(a) memset(a, 0, sizeof(a))
+#define mem(a,b) memset(a, b, sizeof(a))
+#define REP(i, a, n) for(int i = a; i < n; ++i)
+#define RREP(i, a, n) for(int i = a; i > n; --i)
+#define REPE(i, a, n) for(int i = a; i <= n; ++i)
+#define RREPE(i, a, n) for(int i = a; i >= n; --i)
+//useful with graphs
+#define fr first
+#define sc second
+#define pb push_back
+#define pp pop_back
+#define mp make_pair
+#define IT iterator
+#define all(v) v.begin(), v.end()
+#define ssort(v) stable_sort(v.begin(), v.end())
+#define LB(v, x) lower_bound(v.begin(), v.end(), x)
+#define UB(v, x) upper_bound(v.begin(), v.end(), x)
+#define loop(i, x) for(__typeof((x).begin()) i=(x.begin()); i!=(x).end(); ++i)
+#define rloop(i, x) for(__typeof((x).rbegin()) i=(x.rbegin()); i!=(x).rend(); ++i)
+/*--------------------------------------------------------------------------------*/
+
+char str1[85];
+char str2[85];
+int len1, len2;
+int save[85][85];
+char prev[85][85];
+
+int recur(int i = 0, int j = 0)
+{
+    if(i == len1 && j == len2) return 0;
+
+    int& dp = save[i][j];
+    if(dp != -1) return dp;
+
+    if(i == len1)
+    {
+        dp = recur(i, j + 1) + 1;
+        prev[i][j] = 'I';
+    }
+    else if(j == len2)
+    {
+        dp = recur(i + 1, j) + 1;
+        prev[i][j] = 'D';
+    }
+    else if(str1[i] == str2[j])
+    {
+        dp = recur(i + 1, j + 1);
+        prev[i][j] = 'F';
+    }
+    else
+    {
+        dp = recur(i + 1, j + 1) + 1;
+        prev[i][j] = 'R';
+
+        int r = recur(i + 1, j) + 1;
+        if(r < dp)
+        {
+            dp = r;
+            prev[i][j] = 'D';
+        }
+
+        r = recur(i, j + 1) + 1;
+        if(r < dp)
+        {
+            dp = r;
+            prev[i][j] = 'I';
+        }
+    }
+
+    return dp;
+}
+
+void print_path(int i = 0, int j = 0, int cnt = 1)
+{
+    if(i == len1 && j == len2) return;
+
+    if(prev[i][j] == 'F')
+    {
+        print_path(i + 1, j + 1, cnt);
+    }
+    else if(prev[i][j] == 'R')
+    {
+        printf("%d Replace %d,%c\n", cnt, j + 1, str2[j]);
+        print_path(i + 1, j + 1, cnt + 1);
+    }
+    else if(prev[i][j] == 'I')
+    {
+        printf("%d Insert %d,%c\n", cnt, j + 1, str2[j]);
+        print_path(i, j + 1, cnt + 1);
+    }
+    else if(prev[i][j] == 'D')
+    {
+
+        printf("%d Delete %d\n", cnt, j + 1);
+        print_path(i + 1, j, cnt + 1);
+    }
+}
+
+int main()
+{
+#ifdef LOCAL
+    freopen("526.inp", "r", stdin);
+#endif // LOCAL
+
+    bool first = true;
+    while(scanf(" %s %s", str1, str2) == 2)
+    {
+        if(first) first = false;
+        else putchar('\n');
+
+        mem(save, -1);
+        len1 = strlen(str1);
+        len2 = strlen(str2);
+        int dis = recur();
+
+        printf("%d\n", dis);
+        print_path();
+    }
+
+    return 0;
+}

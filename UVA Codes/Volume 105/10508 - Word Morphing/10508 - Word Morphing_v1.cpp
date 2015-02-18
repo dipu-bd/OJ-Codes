@@ -1,0 +1,108 @@
+/*============================
+ /\u7h0r : 5ud!p70 ch@ndr@ d@5
+ =============================*/
+//C headers
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include <limits.h>
+#include <ctype.h>
+#include <assert.h>
+//cpp headers
+#include <iostream>
+#include <iomanip>
+#include <sstream>
+#include <algorithm>
+#include <vector>
+#include <queue>
+#include <set>
+#include <map>
+#include <stack>
+#include <deque>
+#include <list>
+//#include <bitset>
+using namespace std;
+//typedefs
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vii;
+//always useful
+#define gcd(a,b) __gcd(a,b)
+#define clr(a) memset(a, 0, sizeof(a))
+#define mem(a,b) memset(a, b, sizeof(a))
+#define REP(i, a, n) for(int i = a; i < n; ++i)
+#define RREP(i, a, n) for(int i = a; i > n; --i)
+#define REPE(i, a, n) for(int i = a; i <= n; ++i)
+#define RREPE(i, a, n) for(int i = a; i >= n; --i)
+//useful with graphs
+#define fr first
+#define sc second
+#define pb push_back
+#define pp pop_back
+#define mp make_pair
+#define IT iterator
+#define all(v) v.begin(), v.end()
+#define ssort(v) stable_sort(v.begin(), v.end())
+#define LB(v, x) lower_bound(v.begin(), v.end(), x)
+#define UB(v, x) upper_bound(v.begin(), v.end(), x)
+#define loop(i, x) for(__typeof((x).begin()) i=(x.begin()); i!=(x).end(); ++i)
+#define rloop(i, x) for(__typeof((x).rbegin()) i=(x.rbegin()); i!=(x).rend(); ++i)
+/*--------------------------------------------------------------------------------*/
+
+int test, cas = 1;
+
+#define SIZ 5000
+int n, len;
+bool changed[SIZ];
+bool took[SIZ];
+char words[SIZ][SIZ];
+
+bool comp(int a, int b)
+{
+    int ch = n;
+    bool one = 0;
+
+    REP(i, 0, len)
+    if(words[a][i] != words[b][i])
+    {
+        if(changed[i]) return false;
+        if(one) return false;
+        else one = 1, ch = i;
+    }
+
+    changed[ch] = 1;
+    return one;
+}
+
+int main()
+{
+#ifdef LOCAL
+    freopen("10508.inp", "r", stdin);
+#endif // LOCAL
+
+    while(scanf("%d %d", &n, &len) != EOF)
+    {
+        clr(took);
+        clr(changed);
+
+        REP(i, 0, n)
+        scanf(" %s", words[i]);
+
+        int p = 0;
+        puts(words[p]);
+        while(p != 1)
+        {
+            took[p] = 1;
+
+            REP(i, 0, n)
+            if(!took[i] && comp(p, i))
+            {
+                p = i;
+                puts(words[p]);
+            }
+        }
+    }
+
+    return 0;
+}

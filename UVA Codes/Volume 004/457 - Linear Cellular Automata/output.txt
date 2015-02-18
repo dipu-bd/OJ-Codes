@@ -1,0 +1,254 @@
+                   .                    
+                  ...                   
+                 .x x.                  
+                .  .  .                 
+               .........                
+              .x       x.               
+             .  x     x  .              
+            ...xxx   xxx...             
+           .x .WW.x x.WW. x.            
+          .   .xxW . Wxx.   .           
+         ... . WxW...WxW . ...          
+        .x xx..WWWW WWWW..xx x.         
+       .  ..W.Wx  WWW  xW.W..  .        
+      ....xWWxWWx W W xWWxWWx....       
+     .x  .WWWWWWWW W WWWWWWWW.  x.      
+    .  x..x      WW WW      x..x  .     
+   ...x .. x     WWWWW     x .. x...    
+  .x .  xx xx    W   W    xx xx  . x.   
+ .   ..x.....x           x.....x..   .  
+... .x...   . x         x .   ...x. ... 
+x xx .. x. .. xx       xx .. .x .. xx x.
+x... xx   xxx ..x     x.. xxx   xx ...  
+ . x ..x x.W. x. x   x .x .W.x x.. x x. 
+.. x x. . WW.    xx xx    .WW . .x x.  .
+xx x.  x..Wx..  x.....x  ..xW..x  .  ...
+...  .x .WWW.x.x .   . x.x.WWW. x....x x
+x x..   .x xW.W  .. ..  W.Wx x.  .  . .x
+x. .x. .  .WWx. .xxxxx. .xWW.  ......x  
+  x . x....xWW x WWWWW x WWx...x    . x 
+ xx .  .  .WWWWxWW   WWxWWWW. . x  .. xx
+x.. .......x  WWWW   WWWW  x.x. xx.xx ..
+ .xxx     . x W  W   W  W x W.  .WWW. xx
+. WW.x   .. xW           WxW.....x x. ..
+..WxW x .xx WW           WWWW   . .  xxx
+xWWWWWx  W.WWW           W  W  ..x..x.W.
+WW   WWx .xx W                .x.....WW.
+WW   WWW  W.W                . ..   Wxx.
+WW   W W  .x.               ..xxx.  WxW 
+WW    W  . . .             .x.WWW . WWW 
+WW      ..x.x..           . .Wx W...W W 
+WW     .x..W..x.         ..x.WWW.W W.W  
+WW    . ..WWW.. .       .x..Wx xx.W.x.  
+WW   ..xxWx xWxx..     . ..WWW..WWWW. . 
+WW  .x.WxxW.WxxW.x.   ..xxWx xWWx  x.x..
+WW . .WWxxWxWxxWW. . .x.WxxW.WWWWxx W..x
+WW..x.xWxxxWxxxWx.x.x .WWxxWxx  Wx.W.W. 
+WxW..WWxxWxxxWxxWW.W  .xWxxxx.x WWWWxW..
+WWWWWxWxxxxWxxxxWxx. . WxxWWWW WW  WWWWx
+W   WWxxWWxxxWWxxxW x..WxxW  WWWW  W  WW
+    WWxxWWxWxWWxWxWW .WWxxW  W  W     WW
+
+                   .                    
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+
+                   .                    
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+                   .                    
+                  xxx                   
+                 . W .                  
+                xx x xx                 
+               .   .   .                
+              xxx xxx xxx               
+             . W   W   W .              
+            xx xx xxx xx xx             
+           .       W       .            
+          xxx     xxx     xxx           
+         . W .   . W .   . W .          
+        xx x xx xx x xx xx x xx         
+       .   .       .       .   .        
+      xxx xxx     xxx     xxx xxx       
+     . W   W .   . W .   . W   W .      
+    xx xx xx xx xx x xx xx xx xx xx     
+   .               .               .    
+  xxx             xxx             xxx   
+ . W .           . W .           . W .  
+xx x xx         xx x xx         xx x xx 
+   .   .       .   .   .       .   .   .
+  xxx xxx     xxx xxx xxx     xxx xxx xx
+ . W   W .   . W   W   W .   . W   W    
+xx xx xx xx xx xx xxx xx xx xx xx xxx   
+                   W               W .  
+                  xxx             xx xx 
+                 . W .           .     .
+                xx x xx         xxx   xx
+               .   .   .       . W . .  
+              xxx xxx xxx     xx x x.xx 
+             . W   W   W .   .   . xWW .
+            xx xx xxx xx xx xxx xxxW.W x
+           .       W         W   W W  W.
+          xxx     xxx       xxx xxWxxx  
+         . W .   . W .     . W      W . 
+        xx x xx xx x xx   xx xx    xx xx
+       .   .       .   . .     .  .     
+      xxx xxx     xxx xx.xx   xxxxxx    
+     . W   W .   . W   WWW . . WWWW .   
+    xx xx xx xx xx xx xW.W x.x W..W xx  
+   .                  WW  WxWxW WW W  . 
+  xxx                xWWxxW. .WWWWWxxxxx
+ . W .              .W..  W .  .... WWW 
+xx x xx            x WW.xxx xxx.xx. W.Wx
+   .   .          ..WW WWW   WWWWWx   WW
+  xxx xxx        x.W WWW.Wx xW....W. xWW
+ . W   W .      .xW WW.  WW WWWxxWW xW.W
+xx xx xx xx    xxWWWW  xxWWWW..  .WWWW  
+           .  .  ...Wx.  ... W.xx  ..Wx 
+          xxxxxxx.xWWWxxx.x.  WW .x.WWW.
+
+                   .                    
+..................   ...................
+.xxxxxxxxxxxxxxxx. . .xxxxxxxxxxxxxxxxx.
+x.WWWWWWWWWWWWWW.x. .x.WWWWWWWWWWWWWWW.x
+xW              W x.x W               Wx
+..x............xx.x.x.xx.............x..
+.   xxxxxxxxxx ... . ... xxxxxxxxxxx   .
+  .. WWWWWWWW x.x.. ..x.x WWWWWWWWW ..  
+. .. W      W.x.  ...  .x.W       W .. .
+ ... xx....x W x  .x.  x W x.....xx ... 
+ .x.x . xx x.x... x x ...x.x xxx . x.x. 
+ x .xx x   x.  x.x. .x.x  .x  W x xx. x 
+..xx.  ....xx .x. x.x .x. xx.xx..  .xx..
+. ..x  .xx . xx xxx.xxx xx .... .  x.. .
+ .. x. x. x x    W...W    x.xx..  .x .. 
+ ..xxxxxxx. ....x .x. x...x... .  xxx.. 
+ . .WWWWW.x..xx xxx xxx x   x..  . W. . 
+  .      W   .   W   W  ....x .      .  
+.   ....xxx.   .xxx.xxx .xx xx  ....   .
+  . .xx .W.x . x.W...W xx.    . .xx. .  
+.  .x. x .Wxx xxW..x. . .x ..  .x..x.  .
+   x xx.x W     W.  x. .xxx..  x    x   
+....  ..x.xx...x   .xx.x.W. . ..........
+.xx.  .  ... x x.. x... W. . ..xxxxxxxx.
+x..x     .x.x. x .xx x.   . .. .WWWWWW.x
+x  x.... x . xx.xx.  xx .  ....       Wx
+...x xx.x.x x ....x .  x   .xx. .....x..
+.x x  .. .x .x.xx xx  .... x..x..xxx   .
+xx .. ...xxxx ..    . .xx.xx     .W ..  
+  x....x .WW x.. ..  .x.... ....    .. .
+..x xx xx  W.x ....  x  xx...xx. .. ... 
+. x      .x Wxx.xx. .... . x ..x.....x. 
+ x...... xx.. ....x..xx.. x.x.   xxx  x 
+.x xxxx.x . ...xx    .. .xx. x .. W ....
+xx  WW..xx ..x . ... ...x..xx.x.. x .xx.
+  .xW . . x. xx ..x...x    ...  .x.xx..x
+. xW.  . xxxx  x.   x x... .x.  x ...  x
+ x.W    x WW ..xx ... x x..x x ..x.x. ..
+.xW x.....WW . . x.x.x. x  x .x.  . x...
+xW..x xxx. W  . xx. . xx....xx x   xx x.
+.W. x  W.x xx  x .x. x . xx .  ....   xx
+ . x..x Wx   ...xx xx.x x  x   .xx. ..  
+  xx  x..... .x .   ..x ...... x..x... .
+..  ..x xxx..xxx  . . xx.xxxx.xx    x.. 
+..  . x  W.  .W .  . x ...WW... ....x . 
+..   x..x           x.x.x.  .x...xx xx  
+.. ..x  x...........x. . x  x  x .    ..
+.... x..x xxxxxxxxx  x. x.......x  .. ..
+.xx.xx  x  WWWWWWW ..xxxx xxxxx x. .....
+x.... ....xW     W . .WW   WWW  xx..xxx.

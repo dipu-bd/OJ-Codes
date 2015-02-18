@@ -1,0 +1,15 @@
+Network 1
+The bandwidth is 25.
+
+Network 2
+The bandwidth is 323.
+
+Network 3
+The bandwidth is 0.
+
+Network 4
+The bandwidth is 30.
+
+Network 5
+The bandwidth is 9.
+

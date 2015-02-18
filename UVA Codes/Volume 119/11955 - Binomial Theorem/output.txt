@@ -1,0 +1,5 @@
+Case 1: a+b
+Case 2: alpha^2+2*alpha*omega+omega^2
+Case 3: acm^3+3*acm^2*icpc+3*acm*icpc^2+icpc^3
+Case 4: x^5+5*x^4*y+10*x^3*y^2+10*x^2*y^3+5*x*y^4+y^5
+Case 5: p^4+4*p^3*q+6*p^2*q^2+4*p*q^3+q^4

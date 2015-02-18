@@ -1,0 +1,6 @@
+Dear GOD, Pardon Me
+X = 400
+K = 2401
+
+X = 1093
+K = 2187

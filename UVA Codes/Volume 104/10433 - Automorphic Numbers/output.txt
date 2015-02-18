@@ -1,0 +1,3 @@
+Automorphic number of 1-digit.
+Automorphic number of 2-digit.
+Not an Automorphic number.

@@ -1,0 +1,20 @@
+2
+. . . B B B . . . . . . | . . . b b b . . . . . .
+. . . B B B . . . . . . | . . . b b b . . . . . .
+. . . B B B . . . . . . | . . . b b b . . . . . .
+L L L T T T R R R U U U | l l l t t t r r r u u u
+L L L T T T R R R U U U | l l l t t t r r r u u u
+L L L T T T R R R U U U | l l l t t t r r r u u u
+. . . F F F . . . . . . | . . . f f f . . . . . .
+. . . F F F . . . . . . | . . . f f f . . . . . .
+. . . F F F . . . . . . | . . . f f f . . . . . .
+
+. . . G R W . . . . . . | . . . g r w . . . . . .
+. . . W B R . . . . . . | . . . w b r . . . . . .
+. . . O R G . . . . . . | . . . o r g . . . . . .
+R B Y G B R W Y B O W Y | g b r w y b o w y r b y
+Y R G O Y R G O Y G W B | o y r g o y g w b y r g
+O O Y R G Y B Y R W O G | r g y b y r w o g o o y
+. . . B W O . . . . . . | . . . b w o . . . . . .
+. . . W G O . . . . . . | . . . w g o . . . . . .
+. . . W B B . . . . . . | . . . w b b . . . . . .

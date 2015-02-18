@@ -1,0 +1,20 @@
+\s18.\bMARKUP sample\b\s
+
+\*For bold statements use the \b command.\*
+
+If you wish to \iemphasize\i something use the \\i command.
+
+For titles use \s14BIG\s font sizes, 14 points usually works well.
+
+Remember that all of the commands toggle except for the \\s command.
+
+\s3.4a\sb\s.5c\s100.d\s12e 
+\*\b no translation should occur *\\ \b*\s3.*\* 
+/i/b/s\bb\ii\ss 
+\**\\***\\*\*\* 
+\* 
+\\ 
+\* 
+\\ \n\o\ \p\r\ob\l\e\m\*s\* 
+\* close literal text by end-of-file\ 
+

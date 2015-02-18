@@ -1,0 +1,12 @@
+Distance and time to reach destination is 11 & 5.
+
+No Path.
+
+No Path.
+
+Distance and time to reach destination is 5 & 4.
+
+Distance and time to reach destination is 10 & 8.
+Distance and time to reach destination is 0 & 0.
+
+No Path.

@@ -1,0 +1,34 @@
+Turn to the east.
+Continue 2 km.
+Turn left.
+Continue 2 km.
+Turn right.
+Continue 4 km.
+Turn right.
+Continue 6 km.
+You have reached your destination.
+
+Turn to the east.
+Continue 2 km.
+Turn right.
+Continue 4 km.
+Turn left.
+Continue 7 km.
+Turn right.
+Continue 4 km.
+Turn left.
+Continue 2 km.
+Turn right.
+Continue 2 km.
+Turn left.
+Continue 1 km.
+Turn right.
+Continue 2 km.
+Turn right.
+Continue 1 km.
+Turn left.
+Continue 2 km.
+Turn left.
+Continue 3 km.
+You have reached your destination.
+

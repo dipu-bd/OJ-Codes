@@ -1,0 +1,28 @@
+4
+7
+fd 100
+lt 120
+fd 100
+lt 120
+fd 100
+fd 200
+fd ?
+5
+fd 100
+rt 240
+fd 100
+rt ?
+fd 100
+10
+fd 100
+bk 100
+lt 180
+fd 200
+rt 90
+fd 50
+rt 90
+fd 200
+rt ?
+fd 50
+1
+bk ?
