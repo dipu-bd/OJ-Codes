@@ -87,10 +87,10 @@ int main()
     while(scanf("%d", &x) != EOF)
     {
         it = lower_bound(all(lis), x);
-        if(it != lis.end()) lis.erase(it);
         res.pb((int)(it - lis.begin()) + 1);
-        lis.insert(it, x);
         num.pb(x);
+        if(it == lis.end()) lis.pb(x);
+        *it = x;
     }
 
     x = lis.size();

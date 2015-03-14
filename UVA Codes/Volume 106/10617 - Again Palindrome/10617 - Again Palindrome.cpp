@@ -87,9 +87,9 @@ template<typename T> T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod
 /*------------------------------------------------------------------------------------*/
 
 int test, cas = 1;
-
+ 
 char inp[100];
-ll save[65][65];
+ll save[80][80];
 
 ll recur(int i, int j)
 {
@@ -99,18 +99,17 @@ ll recur(int i, int j)
     ll& dp = save[i][j];
     if(dp != -1) return dp;
     
-    if(inp[i] == inp[j])
+    dp = recur(i + 1, j); 
+    
+    REPE(k, i, j)
+    if(inp[i] == inp[k])
     {
-        dp = recur(i + 1, j - 1);
-    }
-    else
-    {
-        dp = recur(i, j - 1) + recur(i + 1, j);
+        dp += 1 + recur(i + 1, k - 1);
     }
     
-    dp = recur(i, j - 1) + recur(i + 1, j);
     return dp;
 }
+
 
 int main()
 {
@@ -118,9 +117,11 @@ int main()
     while(test--)
     {
         scanf(" %s", inp);
+        int n = strlen(inp);
+            
         mem(save, -1);
-        ll way = recur(0, strlen(inp) - 1);
-        printf("%lld\n", way);
+        ll res = recur(0, n - 1);
+        printf("%lld\n", res);
     }
     
     return 0;

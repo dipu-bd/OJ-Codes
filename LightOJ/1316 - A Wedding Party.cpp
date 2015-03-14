@@ -86,6 +86,8 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 const int oo = 1 << 30;
 const int mod = 1000000007;
 
+typedef typedef pair<int, ll> pil;
+
 int test, cas = 1;
 
 struct edge
@@ -101,27 +103,25 @@ struct edge
 
 int n, m, s;
 int dis[505];
-int par[505];
-int shop[18];
 vpii graph[505];
-pii save[16][1 << 15];
-int _save[16][1 << 15];
+int didis[18][18];
+map<int, int> shop;
+pil save[17][1 << 17];
+int _save[17][1 << 17];
 
-void dijkstra(int source, int sink)
+int dijkstra(int source, int sink)
 {
     if(source == sink) return 0;
-    REPE(i, 0, n) dis[i] = oo;
-
     priority_queue<edge> pq;
     pq.push(edge(source, 0));
-
+    REPE(i, 0, n) dis[i] = oo;
     dis[source] = 0;
-    par[source] = source;
-
     while(pq.size())
     {
         edge e = pq.top();
         pq.pop();
+
+        if(e.u == sink) return e.w;
 
         loop(it, graph[e.u])
         {
@@ -130,27 +130,29 @@ void dijkstra(int source, int sink)
             if(w < dis[v])
             {
                 dis[v] = w;
-                par[v] = e.u;
                 pq.push(edge(v, w));
             }
         }
     }
+    return oo;
 }
 
-pii recur(int p, int bit)
+pil recur(int p, int bit)
 {
     pii& dp = save[p][bit];
     int& dpc = _save[p][bit];
     if(dpc == cas) return dp;
 
     dpc = cas;
-    dp.fr = POPC(bit) - 2;
-    dp.sc = didis[p][s + 1];
+    dp.fr = 0; //POPC(bit) - 2;
+    dp.sc = didis[p][s];
+//    printf("%d->%d, %d %d\n", p, s, dp.fr, dp.sc);
 
     REP(i, 0, s)
     if(!(bit & (1 << i)))
     {
         pii r = recur(i, bit | (1 << i));
+        ++r.fr;
         if(r.sc < oo) r.sc += didis[p][i];
 
         if(dp.fr == r.fr)
@@ -179,17 +181,16 @@ int main()
     {
         sf3(n, m, s);
 
+        REP(i, 0, n)
+        graph[i].clear();
+
         //get ship locations
-        REP(i, 0, s)
+        shop[0] = 0; //source
+        REPE(i, 1, s)
         {
             sf1(shop[i]);
         }
-        shop[s] = 0; //source
-        shop[s] = n - 1; //sink
-        // current s = (initial s) + 1
-
-        REP(i, 0, n)
-        graph[i].clear();
+        shop[++s] = n - 1; //sink
 
         //get unidirectional graph
         REP(i, 0, m)
@@ -198,16 +199,15 @@ int main()
             graph[u].pb(mp(v, w));
         }
 
-        pii res = mp(0, oo);
+        //build all dijkstra values
+        REP(i, 0, s)
+        REPE(j, 0, s)
+        didis[i][j] = dijkstra(shop[i], shop[j]);
 
-        if(dijkstra(0, n - 1) < oo)
-        {
-            //calculate result
-            res = recur(s, 0);
-        }
-
+        //calculate result
+        pii res = recur(0, 1 | (1 << s));
         printf("Case %d: ", cas++);
-        if(res.sc == oo) printf("Impossible\n");
+        if(res.sc >= oo) printf("Impossible\n");
         else  printf("%d %d\n", res.fr, res.sc);
     }
 

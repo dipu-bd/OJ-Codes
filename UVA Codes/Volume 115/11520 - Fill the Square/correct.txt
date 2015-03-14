@@ -1,0 +1,8 @@
+Case 1:
+ABA
+BAB
+ABA
+Case 2:
+BAB
+ABA
+BAB

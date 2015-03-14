@@ -1,0 +1,30 @@
+Case #1
+25.0000
+
+Case #2
+Send Kurdy
+
+Case #3
+Send Kurdy
+
+Case #4
+10.0000
+
+Case #5
+0.0000
+
+Case #6
+Send Kurdy
+
+Case #7
+15.1935
+
+Case #8
+23.0421
+
+Case #9
+Send Kurdy
+
+Case #10
+Send Kurdy
+

@@ -130,7 +130,7 @@ void precalc()
         q.pop();
         
         int& d = dis[s];
-        if(d == 11) continue;
+        if(d == 15) continue;
         
         int i = 0;
         while(s[i] != ' ') ++i;
@@ -160,7 +160,7 @@ string convert()
 
 int main()
 {
-    precalc(); 
+    precalc();  
 
     scanf("%d ", &test);
     while(test--)

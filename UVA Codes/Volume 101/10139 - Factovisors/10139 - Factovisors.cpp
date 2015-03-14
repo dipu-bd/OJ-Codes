@@ -91,100 +91,79 @@ double combi(ll n, ll k) { if(2 * k > n) return combi(n, n - k); double res = 1.
 
 int test, cas = 1;
 
-#define SIZ 31650
-
-char flag[SIZ];
-vpii factor[SIZ];
-map<int, int> factorial[SIZ];
+#define SIZ 46350
 vii prime;
-
-void push(int n, int p)
+char flag[SIZ];
+vpii factor;
+ 
+void sieve()
 {
-    int t = n;
-    int cnt = 0;
-    while(!(t % p))
+    int i, j;
+    
+    prime.pb(2);
+    for(j = 4; j < SIZ; j += 2) flag[j] = 1;
+    
+    for(i = 3; i * i < SIZ; i += 2)
     {
-        ++cnt;
-        t /= p;
+        if(!flag[i])
+        {
+            prime.pb(i);
+            for(j = i * i; j < SIZ; j += i + i) 
+                flag[j] = 1;
+        }
     }
-    factor[n].pb(mp(p, cnt));
-}
-
-void mark(int p)
-{
-    prime.pb(p);
-    factor[p].pb(mp(p, 1));
-    for(int i = p + p; i < SIZ; i += p)
+    
+    for( ; i < SIZ; i += 2)
     {
-        flag[i] = 1;
-        push(i, p);
-    }
-}
-
-void factosieve()
-{
-    mark(2);
-    for(int i = 3; i < SIZ; i += 2)
-        if(!flag[i]) mark(i);
-}
-
-void preprocess()
-{
-    factosieve();
-    REP(n, 2, SIZ)
-    {
-        factorial[n] = factorial[n - 1];
-        loop(i, factor[n]) 
-        factorial[n][i->fr] += i->sc;
+        if(!flag[i])
+            prime.pb(i);
     }
 }
 
-void factorize(int m, vpii& vp)
+void factorize(int n)
 {
-    vp.clear();
+    factor.clear();
     loop(it, prime)
     {
         int p = *it;
-        if(p * p > m) break;
-        int cnt = 0;
-        while(!(m % p))
+        if((ll)p * p > n) break;
+        if(!(n % p))
         {
-            ++cnt;
-            m /= p;
+            int cnt = 0;
+            do
+            {
+                ++cnt;
+                n /= p;
+            }
+            while(!(n % p));
+            factor.pb(mp(p, cnt));
         }
-        vp.pb(mp(p, cnt));
     }
-    if(m > 1) vp.pb(mp(m, 1));
+    if(n > 1) factor.pb(mp(n, 1));
 }
-
+ 
 bool divide(int n, int m)
 {
-    if(n <= 1)
-        return (m == 1);
-    if(n >= m) 
-        return true;
-    
-    vpii fm;
-    factorize(m, fm);
-    
-    int sn = sqrt(n);
-    map<int, int>& fn = factorial[sn];
-    
-    loop(i, fm)
+    factorize(m);
+    loop(it, factor)
     {
-        if((ll)i->fr * i->fr > n)
-            return false;
+        int k = 0;
+        int p = it->fr;
+        REPE(i, 1, it->sc)
+        {
+            k += n / p;
+            p *= it->fr;
+        }
+        if(k < it->sc) return false;
     }
     return true;
-    
-    //factorize m
-    //find prime factor upto sqrt(n)
 }
 
 int main()
 {
+    sieve();
+    
     int n, m;
-    preprocess();
     while(sf2(n, m) == 2)
     {
         if(divide(n, m))

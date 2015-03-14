@@ -2,6 +2,7 @@
  Author : Sudipto Chandra (Dipu)
  Email  : dipu.sudipta@gmail.com
  University : SUST
+ Created: $(NOW_L), $(WEEKDAY)
  ===================================*/
 //#include <bits/stdc++.h>
 //C headers
@@ -12,7 +13,6 @@
 #include <limits.h>
 #include <ctype.h>
 #include <assert.h>
-//#include <time.h>
 //cpp headers
 #include <iostream>
 #include <iomanip>
@@ -29,15 +29,12 @@
 using namespace std;
 //typedefs
 typedef long long ll;
-typedef unsigned long long ull;
-typedef unsigned int uint;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
-typedef vector<int> vi;
 typedef vector<int> vii;
 typedef vector<pii> vpii;
-typedef map<int, int> mpii;
 //always useful
+#define unsigned un
 #define gcd(a,b) __gcd(a,b)
 #define clr(a) memset(a, 0, sizeof(a))
 #define mem(a,b) memset(a, b, sizeof(a))
@@ -51,8 +48,7 @@ typedef map<int, int> mpii;
 #define pf printf
 #define sf1(a) scanf("%d", &a)
 #define sf2(a, b) scanf("%d %d", &a, &b)
-#define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c);
-#define sf4(a, b, c, d) scanf("%d %d %d %d", &a, &b, &c, &d);
+#define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c)
 //useful with graphs
 #define fr first
 #define sc second
@@ -70,13 +66,11 @@ typedef map<int, int> mpii;
 #define rloop(i, x) for(__typeof((x).rbegin()) i=(x).rbegin(); i!=(x).rend(); ++i)
 #define TEMPLATE template<typename T>
 //variables and functions
-const double EPS = 1E-10;
-const double PI = 2.0 * acos(0.0);
 TEMPLATE inline T sqr(T n) { return n * n; }
 TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
 TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
-TEMPLATE T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p>>1)); if(p&1) res*=n; return res; } }
-TEMPLATE T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p>>1, m))%m; if(p&1) r = (r*n)%m; return r; } }
+TEMPLATE T power(T n, ll p) { if(!p) return 1; else { T res = sqr(power(n, p>>1)); if(p&1) res*=n; return res; } }
+TEMPLATE T bigmod(T n, ll p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p>>1, m))%m; if(p&1) r = (r*n)%m; return r; } }
 TEMPLATE T exgcd(T a,T b,T& x,T& y) { if(!b) { x=1; y=0; return a; } else { T g = exgcd(b, a%b, y, x); y -= (a/b)*x; return g; } }
 TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
 TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
@@ -87,13 +81,9 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 const int oo = 1 << 30;
 const int mod = 1000000007;
 
-int test, cas = 1;
+int test, cas = 1; 
 
 int main()
-{
-#ifdef LOCAL
-    //freopen("", "r", stdin);
-#endif // LOCAL
-
+{ 
     return 0;
 }

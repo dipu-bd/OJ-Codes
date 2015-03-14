@@ -75,7 +75,10 @@ int main()
                 res += i * (p - q) * (p + q + 1) / 2;
             }
         }
-        if(n > 0) res -= (n - 1) + n * (n + 1) / 2;
+        if(n > 0) 
+        {
+            res -= (n - 1) + n * (n + 1) / 2;
+        }
 
         printf("Case %d: %lld\n", cas++, res);
     }

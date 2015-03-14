@@ -3,7 +3,7 @@
 #include <string.h>
 using namespace std;
 
-#define SIZE 200001
+#define SIZE 201
 long long G[SIZE];
 
 int GCD(int a, int b)
@@ -36,8 +36,7 @@ int main()
     // freopen("11424.inp", "r", stdin);
 #endif
 
-    MAKE();
-    return 0;
+    MAKE(); 
 
     int N;
     while(scanf("%d", &N) != EOF && N > 0)
