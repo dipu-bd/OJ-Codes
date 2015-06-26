@@ -11,8 +11,7 @@
 #include <math.h>
 #include <limits.h>
 #include <ctype.h>
-//#include <assert.h>
-//#include <time.h>
+#include <assert.h>
 //cpp headers
 #include <iostream>
 #include <iomanip>
@@ -72,9 +71,6 @@ typedef map<int, int> mpii;
 //variables and functions
 const double EPS = 1E-10;
 const double PI = 2.0 * acos(0.0);
-const int CHAR_INF = 0x7F;
-const int INT_INF = 0x7F7F7F7F;
-const long long LONG_INF = 0X7F7F7F7F7F7F7F7F;
 TEMPLATE inline T sqr(T n) { return n * n; }
 TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
 TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
@@ -82,6 +78,8 @@ TEMPLATE T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p>>1
 TEMPLATE T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p>>1, m))%m; if(p&1) r = (r*n)%m; return r; } }
 TEMPLATE T exgcd(T a,T b,T& x,T& y) { if(!b) { x=1; y=0; return a; } else { T g = exgcd(b, a%b, y, x); y -= (a/b)*x; return g; } }
 TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
+TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
+TEMPLATE inline string tostring(T n) { stringstream ss; ss << n; return ss.str(); }
 inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 /*------------------------------------------------------------------------------------*/
 

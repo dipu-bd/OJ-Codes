@@ -4,36 +4,6 @@
 char array[25][25];
 char pos[25][2];
 
-int main()
-{
-    int n;
-    scanf("%d",&n);
-    set(n);
-
-    char inp[100];
-    char cmd[10], method[10];
-    int task,call,block1,block2;
-    while(scanf(" %[^\n]",inp)==1)
-    {
-        if(!strcmp(inp,"quit")) break;
-        sscanf(inp,"%s %d %s %d",cmd,&block1,method,&block2);
-
-        task=strcmp(cmd,"move")?1:0;
-        call=strcmp(method,"onto")?1:0;
-
-        if(!task && !call)
-            move_onto(n,pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
-        else if(!task && call)
-            move_over(n,pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
-        else if(task && !call)
-            pile_onto(n,pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
-        else
-            pile_over(pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
-    }
-    print(n);
-    return 0;
-}
-
 void set(int n)
 {
     register int i;
@@ -125,4 +95,34 @@ void pile_over(char px, char py, char qx, char qy)
         move_block(px,py,qx,qy);
 
     return;
+}
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    set(n);
+
+    char inp[100];
+    char cmd[10], method[10];
+    int task,call,block1,block2;
+    while(scanf(" %[^\n]",inp)==1)
+    {
+        if(!strcmp(inp,"quit")) break;
+        sscanf(inp,"%s %d %s %d",cmd,&block1,method,&block2);
+
+        task=strcmp(cmd,"move")?1:0;
+        call=strcmp(method,"onto")?1:0;
+
+        if(!task && !call)
+            move_onto(n,pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
+        else if(!task && call)
+            move_over(n,pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
+        else if(task && !call)
+            pile_onto(n,pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
+        else
+            pile_over(pos[block1][0],pos[block1][1],pos[block2][0],pos[block2][1]);
+    }
+    print(n);
+    return 0;
 }

@@ -1,6 +1,9 @@
-/*============================
- /\u7h0r : 5ud!p70 ch@ndr@ d@5
- =============================*/
+/*==================================
+ Author : Sudipto Chandra (Dipu)
+ Email  : dipu.sudipta@gmail.com
+ University : SUST
+ ===================================*/
+//#include <bits/stdc++.h>
 //C headers
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,72 +27,120 @@
 //#include <bitset>
 using namespace std;
 //typedefs
-typedef long long LL;
-typedef unsigned long long ULL;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef unsigned int uint;
 typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
 typedef vector<int> vii;
+typedef vector<pii> vpii;
+typedef map<int, int> mpii;
 //always useful
 #define gcd(a,b) __gcd(a,b)
 #define clr(a) memset(a, 0, sizeof(a))
 #define mem(a,b) memset(a, b, sizeof(a))
+#define memsz(a,b,n) memset(a, b, n * sizeof(*a))
 #define REP(i, a, n) for(int i = a; i < n; ++i)
-#define RREP(i, a, n) for(int i = a; i > n; --i)
 #define REPE(i, a, n) for(int i = a; i <= n; ++i)
+#define RREP(i, a, n) for(int i = a; i > n; --i)
 #define RREPE(i, a, n) for(int i = a; i >= n; --i)
+//io
+#define sf scanf
+#define pf printf
+#define sf1(a) scanf("%d", &a)
+#define sf2(a, b) scanf("%d %d", &a, &b)
+#define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c);
+#define sf4(a, b, c, d) scanf("%d %d %d %d", &a, &b, &c, &d);
 //useful with graphs
 #define fr first
 #define sc second
 #define pb push_back
 #define pp pop_back
 #define mp make_pair
+#define ins insert
 #define IT iterator
 #define all(v) v.begin(), v.end()
 #define ssort(v) stable_sort(v.begin(), v.end())
 #define LB lower_bound
 #define UB upper_bound
-#define NL putchar('\n')
 #define POPC __builtin_popcount
-#define loop(i, x) for(__typeof((x).begin()) i=(x.begin()); i!=(x).end(); ++i)
-#define rloop(i, x) for(__typeof((x).rbegin()) i=(x.rbegin()); i!=(x).rend(); ++i)
-/*--------------------------------------------------------------------------------*/
+#define loop(i, x) for(__typeof((x).begin()) i=(x).begin(); i!=(x).end(); ++i)
+#define rloop(i, x) for(__typeof((x).rbegin()) i=(x).rbegin(); i!=(x).rend(); ++i)
+#define TEMPLATE template<typename T>
+//variables and functions
+const double EPS = 1E-10;
+const double PI = 2.0 * acos(0.0);
+TEMPLATE inline T sqr(T n) { return n * n; }
+TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
+TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
+TEMPLATE T power(T n, ll p) { if(!p) return 1; else { T res = sqr(power(n, p >> 1)); if(p & 1) res *= n; return res; } }
+TEMPLATE T bigmod(T n, ll p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p >> 1, m)) % m; if(p & 1) r = (r * n) % m; return r; } }
+TEMPLATE T exgcd(T a, T b, T& x, T& y) { if(!b) { x = 1; y = 0; return a; } else { T g = exgcd(b, a % b, y, x); y -= (a / b) * x; return g; } }
+TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
+TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
+TEMPLATE inline string tostring(T n) { stringstream ss; ss << n; return ss.str(); }
+inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
+/*------------------------------------------------------------------------------------*/
+
+const int oo = 1 << 30;
+const int mod = 1000000007;
 
 int test, cas = 1;
 
-int des, n;
-bool vis[105];
-int graph[105][105];
+int n;
+int par[110];
+int dis[110];
+bool vis[110];
+int mat[110][110];
 
-bool dfs(int v, int m)
+int bfs(int s, int t)
 {
-    if(vis[v]) return 0;
-    if(v == des) return 1;
-
-    vis[v] = 1;
-    REPE(i, 1, n)
-    if(graph[v][i])
+    clr(vis);
+    queue<int> q;
+    q.push(s);
+    dis[s] = oo;
+    par[s] = s;
+    vis[s] = 1;
+    while(q.size())
     {
-        if(dfs(i))
+        int u = q.front();
+        q.pop();
+
+        if(u == t) return true;
+
+        REP(i, 0, n)
         {
-            graph[i][v] += graph[v][i];
+            if(mat[u][i] && !vis[i])
+            {
+                vis[i] = 1;
+                par[i] = u;
+                dis[i] = min(dis[u], mat[u][i]);
+                q.push(i);
+            }
         }
     }
-
-    return 0;
+    return false;
 }
 
 int maxflow(int s, int t)
 {
-    des = t;
-    int res = 0;
-    while(1)
+    int total = 0;
+    while(bfs(s, t))
     {
-        clr(vis);
-        t = dfs(s);
-        if(t == 0) break;
-        res += t;
+        int flow = dis[t];
+        int v = t;
+        int u = par[v];
+        while(u != v)
+        {
+            mat[u][v] -= flow;
+            mat[v][u] += flow;
+            v = u;
+            u = par[v];
+        }
+        total += flow;
     }
-
-    REPE(i, 1, n) res += graph[t][i];
+    return total;
 }
 
 int main()
@@ -99,22 +150,24 @@ int main()
 #endif // LOCAL
 
     int s, t, m;
-    int u, v, c;
+    int u, v, w;
 
-    scanf("%d", &test);
+    sf1(test);
     while(test--)
     {
-        scanf("%d", &n);
-        scanf("%d %d %d", &s, &t, &m);
+        sf1(n);
+        sf3(s, t, m);
 
-        clr(graph);
-        while(m--)
+        clr(mat);
+        REP(i, 0, m)
         {
-            scanf("%d %d %d", &u, &v, &c);
-            graph[u][v] = graph[v][u] = c;
+            sf3(u, v, w);
+            --u, --v;
+            mat[u][v] += w;
+            mat[v][u] = mat[u][v];
         }
 
-        int res = maxflow(s, t);
+        int res = maxflow(s - 1, t - 1);
         printf("Case %d: %d\n", cas++, res);
     }
 

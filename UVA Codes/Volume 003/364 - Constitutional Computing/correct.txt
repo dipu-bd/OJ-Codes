@@ -1,0 +1,15 @@
+Data set 1:
+For 30 representatives:
+Anxit is favored by no method.
+Bored is favored by Jefferson.
+Confu is favored by Hamilton and Jefferson and Webster.
+Dismy is favored by Hamilton and Adams and Webster.
+Ecsta is favored by Adams.
+
+For 5 representatives:
+Anxit is favored by no method.
+Bored is favored by no method.
+Confu is favored by no method.
+Dismy is favored by no method.
+Ecsta is favored by no method.
+

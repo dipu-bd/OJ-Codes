@@ -1,0 +1,15 @@
+Case 1: 92
+Case 2: 108
+Case 3: 7304
+Case 4: 200400
+Case 5: 1348
+Case 6: 11495
+Case 7: 97391
+Case 8: 103731
+Case 9: 6
+Case 10: 3895
+Case 11: 7
+Case 12: 0
+Case 13: 0
+Case 14: 1
+Case 15: 194

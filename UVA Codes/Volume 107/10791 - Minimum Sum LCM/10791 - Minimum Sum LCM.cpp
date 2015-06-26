@@ -85,24 +85,41 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
-ll minsum(ll n)
-{
-    ll msum = n + 1;
-    for(ll i = 2; i * i <= n; ++i)
-    {
-        if(n % i == 0) 
-            msum = min(msum, i + n / i);
-    }
-    return msum;
-}
-
-
 int main()
 {
-    ll n;
+    ll n; 
     while(scanf("%lld", &n) == 1 && n)
-    {
-        printf("Case %d: %lld\n", cas++, minsum(n));
+    { 
+        ll t = n;
+        ll ans = 0;
+        int dc = 0; 
+        for(ll p = 2; p * p < t; ++p)
+        {
+            if(t % p == 0)
+            {
+                ++dc;
+                ll r = 1;
+                while(!(t % p))
+                {
+                    r *= p;
+                    t /= p;
+                }
+                ans += r;
+            }
+        }
+        if(t > 1) 
+        {
+            ++dc;
+            ans += t;
+        }
+        
+        //number of div == 1
+        if(dc <= 1)
+        {
+            ans = n + 1;
+        }
+        
+        printf("Case %d: %lld\n", cas++, ans);
     }
     
     return 0;

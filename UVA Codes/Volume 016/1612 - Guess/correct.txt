@@ -1,0 +1,100 @@
+Case 1: No solution
+Case 2: No solution
+Case 3: No solution
+Case 4: 441.05
+Case 5: No solution
+Case 6: No solution
+Case 7: 404.16
+Case 8: 475.88
+Case 9: 598.78
+Case 10: 821.45
+Case 11: 220.08
+Case 12: 1337.84
+Case 13: 0.00
+Case 14: 974.22
+Case 15: 34.28
+Case 16: 495.25
+Case 17: 752.54
+Case 18: 761.72
+Case 19: 829.35
+Case 20: 535.04
+Case 21: No solution
+Case 22: 1274.91
+Case 23: 468.99
+Case 24: 0.00
+Case 25: 2099.37
+Case 26: 648.34
+Case 27: 0.00
+Case 28: 279.24
+Case 29: No solution
+Case 30: 278.95
+Case 31: 742.30
+Case 32: 1901.94
+Case 33: 857.37
+Case 34: 0.00
+Case 35: 574.22
+Case 36: 1005.40
+Case 37: 1559.87
+Case 38: 501.66
+Case 39: 439.57
+Case 40: 957.74
+Case 41: 1009.45
+Case 42: 485.59
+Case 43: No solution
+Case 44: No solution
+Case 45: No solution
+Case 46: 276.26
+Case 47: 898.05
+Case 48: 0.00
+Case 49: 1402.82
+Case 50: 295.45
+Case 51: 1858.61
+Case 52: 514.88
+Case 53: 686.47
+Case 54: No solution
+Case 55: 1997.12
+Case 56: 89.70
+Case 57: 0.00
+Case 58: 1623.13
+Case 59: 0.00
+Case 60: 931.67
+Case 61: 0.00
+Case 62: No solution
+Case 63: 1559.14
+Case 64: 822.65
+Case 65: 154.52
+Case 66: 0.00
+Case 67: 1204.80
+Case 68: No solution
+Case 69: 0.00
+Case 70: 555.89
+Case 71: 11.83
+Case 72: 1298.37
+Case 73: No solution
+Case 74: 290.56
+Case 75: 1067.51
+Case 76: 835.35
+Case 77: No solution
+Case 78: 1106.49
+Case 79: 416.75
+Case 80: No solution
+Case 81: 27.84
+Case 82: 945.63
+Case 83: 769.94
+Case 84: 1604.60
+Case 85: 0.00
+Case 86: 1067.45
+Case 87: 545.62
+Case 88: 879.19
+Case 89: 1621.95
+Case 90: 0.00
+Case 91: 1271.65
+Case 92: 0.00
+Case 93: 746.44
+Case 94: 1077.55
+Case 95: No solution
+Case 96: 827.78
+Case 97: 462.17
+Case 98: No solution
+Case 99: 1983.98
+Case 100: 197.14

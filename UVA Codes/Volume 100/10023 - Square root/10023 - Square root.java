@@ -21,7 +21,7 @@ class Main
         if(Y.compareTo(BigInteger.ZERO) == 0 || 
             Y.compareTo(BigInteger.ONE) == 0)
             return Y;
-        
+        int iter = 0;
         BigInteger two = BigInteger.valueOf(2);
         BigInteger PX = Y;
         BigInteger X = Y.divide(two);
@@ -29,8 +29,9 @@ class Main
         {
             PX = X;
             X = (Y.divide(X).add(X)).divide(two);
+            ++iter;
         }
-        
+        System.out.println("iter=", iter);
         return PX;
     }
 }

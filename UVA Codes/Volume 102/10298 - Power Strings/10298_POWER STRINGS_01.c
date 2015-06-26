@@ -34,7 +34,9 @@ int compare(register j, register count)
 {
     register i=0;
     while(i<count)
+    {
         if(inp[i]!=inp[j]) return 0;
         else ++i, ++j;
+    }
     return 1;
 }

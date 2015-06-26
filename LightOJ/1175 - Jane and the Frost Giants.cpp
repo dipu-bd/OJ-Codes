@@ -74,8 +74,8 @@ const double PI = 2.0 * acos(0.0);
 TEMPLATE inline T sqr(T n) { return n * n; }
 TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
 TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
-TEMPLATE T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p >> 1)); if(p & 1) res *= n; return res; } }
-TEMPLATE T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p >> 1, m)) % m; if(p & 1) r = (r * n) % m; return r; } }
+TEMPLATE T power(T n, ll p) { if(!p) return 1; else { T res = sqr(power(n, p >> 1)); if(p & 1) res *= n; return res; } }
+TEMPLATE T bigmod(T n, ll p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p >> 1, m)) % m; if(p & 1) r = (r * n) % m; return r; } }
 TEMPLATE T exgcd(T a, T b, T& x, T& y) { if(!b) { x = 1; y = 0; return a; } else { T g = exgcd(b, a % b, y, x); y -= (a / b) * x; return g; } }
 TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
 TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
@@ -88,122 +88,40 @@ const int mod = 1000000007;
 
 int test, cas = 1;
 
-int n, m;
 int X[] = {0, 0, 1, -1};
 int Y[] = {1, -1, 0, 0};
 
-struct matrix
+int n, m;
+int dis[210][210];
+int jdis[210][210];
+bool vis[210][210];
+char mat[210][210];
+
+void BFS_Fire()
 {
-    char mat[202][210];
-
-    char* operator [] (int i)
+    clr(vis);
+    queue<int> q;
+    REP(i, 0, n)
+    REP(j, 0, m)
     {
-        return mat[i];
+        if(mat[i][j] != 'F') continue;
+        q.push(i);
+        q.push(j);
+        vis[i][j] = 1;
+        dis[i][j] = 0;
     }
-
-    void scan()
-    {
-        scanf("%d %d", &n, &m);
-        REP(i, 0, n)
-        scanf(" %s", mat[i]);
-    }
-
-    void show()
-    {
-        REP(i, 0, n)
-        puts(mat[i]);
-        puts("");
-    }
-
-    void spread()
-    {
-        //spread F to small f
-        REP(i, 0, n)
-        REP(j, 0, m)
-        if(mat[i][j] == 'F')
-        {
-            REP(k, 0, 4)
-            {
-                int p = i + X[k];
-                int q = j + Y[k];
-                if(p < 0 || q < 0 || p >= n || q >= m) continue;
-                if(mat[p][q] == 'J' || mat[p][q] == '.') mat[p][q] = 'f';
-            }
-        }
-        //make small f's up
-        REP(i, 0, n)
-        REP(j, 0, m)
-        {
-            if(mat[i][j] == 'f')
-                mat[i][j] = 'F';
-        }
-    }
-};
-
-matrix inp;
-queue<int> q;
-int dis[202][210];
-bool vis[202][210];
-vector<matrix> vmat;
-
-matrix& getmat(int dis)
-{
-    int sz = vmat.size();
-    if(dis < sz) return vmat[dis];
-    while(dis >= sz)
-    {
-        vmat.pb(vmat[sz - 1]);
-        vmat[sz++].spread();
-    }
-    return vmat[dis];
-}
-
-
-void findJane(int& x, int& y)
-{
-    for(x = 0; x < n; ++x)
-        for(y = 0; y < m; ++y)
-            if(inp[x][y] == 'J')
-                return;
-}
-
-bool isout(int x, int y)
-{
-    return x < 0 || x >= n || y < 0 || y >= m;
-}
-
-int BFS()
-{
-    vmat.clear();
-    vmat.pb(inp);
-
-    int x, y;
-    findJane(x, y);
-    q = queue<int>();
-    q.push(x);
-    q.push(y);
-    dis[x][y] = 0;
-    vis[x][y] = true;
 
     while(q.size())
     {
-        x = q.front();
-        q.pop();
-        y = q.front();
-        q.pop();
+        int x = q.front(); q.pop();
+        int y = q.front(); q.pop();
 
         int d = dis[x][y] + 1;
-        matrix& mat = getmat(d);
-
         REP(i, 0, 4)
         {
             int a = x + X[i];
             int b = y + Y[i];
-            if(isout(a, b))
-            {
-                return d;
-            }
-            if(mat[a][b] == '.' && !vis[a][b])
+            if(a >= 0 && b >= 0 && a < n && b < m && !vis[a][b] && mat[a][b] != '#')
             {
                 q.push(a);
                 q.push(b);
@@ -212,29 +130,76 @@ int BFS()
             }
         }
     }
+}
+
+int BFS_Jane(int x, int y)
+{
+    clr(vis);
+    queue<int> q;
+    q.push(x);
+    q.push(y);
+    vis[x][y] = 1;
+    jdis[x][y] = 0;
+
+    while(q.size())
+    {
+        x = q.front(); q.pop();
+        y = q.front(); q.pop();
+
+        int d = jdis[x][y] + 1;
+        REP(i, 0, 4)
+        {
+            int a = x + X[i];
+            int b = y + Y[i];
+            if(a < 0 || b < 0 || a >= n || b >= m) return d;
+            if(!vis[a][b] && mat[a][b] != '#' && d < dis[a][b])
+            {
+                q.push(a);
+                q.push(b);
+                vis[a][b] = 1;
+                jdis[a][b] = d;
+            }
+        }
+    }
 
     return -1;
 }
 
+int solve()
+{
+    BFS_Fire();
+
+    int jx, jy;
+    bool found = 0;
+    REP(i, 0, n)
+    {
+        REP(j, 0, m)
+        if(mat[i][j] == 'J')
+        {
+            jx = i;
+            jy = j;
+            found = true;
+        }
+        if(found) break;
+    }
+
+    clr(vis);
+    return BFS_Jane(jx, jy);
+}
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("", "r", stdin);
-#endif // LOCAL
-
     sf1(test);
     while(test--)
     {
-        inp.scan();
+        sf2(n, m);
+        REP(i, 0, n)
+        scanf(" %s", mat[i]);
 
-        int res = BFS();
-
+        int res = solve();
         printf("Case %d: ", cas++);
-        if(res == -1)
-            puts("IMPOSSIBLE");
-        else
-            printf("%d\n", res);
+        if(res == -1) puts("IMPOSSIBLE");
+        else printf("%d\n", res);
     }
 
     return 0;

@@ -1,0 +1,5 @@
+TEXT 1 2 5
+THE 2 5 6 7
+THERE 3
+TO 5
+TWO 3

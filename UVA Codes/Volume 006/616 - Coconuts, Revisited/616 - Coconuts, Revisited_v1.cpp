@@ -1,6 +1,9 @@
-/*============================
- /\u7h0r : 5ud!p70 ch@ndr@ d@5
- =============================*/
+/*==================================
+Author : Sudipto Chandra (Dipu)
+Email  : dipu.sudipta@gmail.com
+University : SUST
+===================================*/
+//#include <bits/stdc++.h>
 //C headers
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,8 +11,7 @@
 #include <math.h>
 #include <limits.h>
 #include <ctype.h>
-//#include <assert.h>
-//#define <time.h>
+#include <assert.h>
 //cpp headers
 #include <iostream>
 #include <iomanip>
@@ -29,18 +31,23 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef unsigned int uint;
 typedef pair<int, int> pii;
+typedef pair<ll, ll> pll;
+typedef vector<int> vi;
 typedef vector<int> vii;
 typedef vector<pii> vpii;
+typedef map<int, int> mpii;
 //always useful
 #define gcd(a,b) __gcd(a,b)
 #define clr(a) memset(a, 0, sizeof(a))
 #define mem(a,b) memset(a, b, sizeof(a))
 #define memsz(a,b,n) memset(a, b, n * sizeof(*a))
 #define REP(i, a, n) for(int i = a; i < n; ++i)
-#define RREP(i, a, n) for(int i = a; i > n; --i)
 #define REPE(i, a, n) for(int i = a; i <= n; ++i)
+#define RREP(i, a, n) for(int i = a; i > n; --i)
 #define RREPE(i, a, n) for(int i = a; i >= n; --i)
-#define NEW_LINE printf("\n")
+//io
+#define sf scanf
+#define pf printf
 #define sf1(a) scanf("%d", &a)
 #define sf2(a, b) scanf("%d %d", &a, &b)
 #define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c);
@@ -53,59 +60,61 @@ typedef vector<pii> vpii;
 #define mp make_pair
 #define ins insert
 #define IT iterator
-#define allof(v) v.begin(), v.end()
+#define all(v) v.begin(), v.end()
 #define ssort(v) stable_sort(v.begin(), v.end())
 #define LB lower_bound
 #define UB upper_bound
 #define POPC __builtin_popcount
-#define loop(i, x) for(__typeof((x).begin()) i=(x.begin()); i!=(x).end(); ++i)
-#define rloop(i, x) for(__typeof((x).rbegin()) i=(x.rbegin()); i!=(x).rend(); ++i)
+#define loop(i, x) for(__typeof((x).begin()) i=(x).begin(); i!=(x).end(); ++i)
+#define rloop(i, x) for(__typeof((x).rbegin()) i=(x).rbegin(); i!=(x).rend(); ++i)
+#define TEMPLATE template<typename T>
 //variables and functions
+const double EPS = 1E-10;
 const double PI = 2.0 * acos(0.0);
-const double EXP1 = exp(1);
-const double EPS = 1e-10;
-template<typename T> inline T sqr(T n) { return n * n; }
+TEMPLATE inline T sqr(T n) { return n * n; }
+TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
+TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
+TEMPLATE T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p>>1)); if(p&1) res*=n; return res; } }
+TEMPLATE T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p>>1, m))%m; if(p&1) r = (r*n)%m; return r; } }
+TEMPLATE T exgcd(T a,T b,T& x,T& y) { if(!b) { x=1; y=0; return a; } else { T g = exgcd(b, a%b, y, x); y -= (a/b)*x; return g; } }
+TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
+TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
+TEMPLATE inline string tostring(T n) { stringstream ss; ss << n; return ss.str(); }
 inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
-template<typename T> inline T pmod(T n, T m) { return ((n % m) + m) % m; }
-template<typename T> T power(T n, int p) { return (p == 0) ? (T)(1) : (sqr(power(n, p >> 1)) * ((p & 1) * (n - 1) + 1)); }
-/*--------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
 
 int test, cas = 1;
 
-bool isok(int n, int x)
+bool func(ll s, int n, int t = 0)
 {
-    double cn = pow((double)(n - 1)/ n, n);
-    double rs = cn * (x + n - 1) - n + 1;
-    ll xn = (ll)round(rs);
-    if(fabs(xn - rs) > EPS) return false;
-    return (xn % n == 0);
+    if(n <= 1) return false;
+    if(t == n) return !(s % n);
+    if(s % n != 1) return false;
+    return func((n - 1) * (s - 1) / n, n, t + 1);
 }
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("", "r", stdin);
-#endif // LOCAL
-
-    int x;
-    while(sf1(x) == 1 && x >= 0)
-    {
-        int n = -1;
-        RREPE(i, x - 1, 2)
+    ll s;
+    while(scanf("%lld", &s) == 1 && s >= 0)
+    {   
+        ll n = -1;
+        for(ll a = 1; a * a < s; ++a)
         {
-            if(x % i == 1)
+            if(!((s - 1) % a))
             {
-                if(isok(i, x))
+                if(func(s, (s - 1) / a)) 
                 {
-                    n = i;
+                    n = max(n, (s - 1) / a); 
                     break;
                 }
+                if(func(s, a)) n = max(n, a);
             }
         }
-
-        if(n <= 0) printf("%d coconuts, no solution\n", x);
-        else printf("%d coconuts, %d people and 1 monkey\n", x, n);
+        
+        if(n == -1) printf("%lld coconuts, no solution\n", s);
+        else printf("%lld coconuts, %lld people and 1 monkey\n", s, n);
     }
-
+    
     return 0;
 }

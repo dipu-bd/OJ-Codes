@@ -4,18 +4,18 @@
 #include <ctype.h>
 
 #define SIZE 1000
-#define LINES 1000
+#define LINES 5000
 
 typedef struct
 {
     int pc;
     int pos[LINES];
-    char word[30];
+    char word[100];
 } WORD;
 
 int lc;
 char key;
-char line[80];
+char line[100];
 char count = 0;
 WORD words[SIZE];
 
@@ -24,12 +24,7 @@ int printResult();
 int compare(const WORD *w1, const WORD *w2);
 
 int main()
-{
-#ifndef ONLINE_JUDGE
-    freopen("in","r",stdin);
-    //freopen("out","w",stdout);
-#endif
-
+{ 
     memset(words, 0, SIZE*sizeof(WORD));
 
     key = getchar();
