@@ -1,0 +1,3 @@
+Case 1: 16
+Case 2: 64
+Case 3: Infinity

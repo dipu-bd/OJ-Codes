@@ -1,0 +1,39 @@
+February 28, 0 is a Sunday
+February 29, 0 is a Monday
+January 1, 1 is a Saturday
+September 10, 2500 is a Friday
+May 5, 999 is a Friday
+July 3, 8888 is a Saturday
+February 27, 1000 is a Tuesday
+February 28, 1000 is a Wednesday
+February 29, 1000 is a Thursday
+2/30/1000 is an invalid date.
+March 1, 1000 is a Friday
+February 27, 1400 is a Friday
+February 28, 1400 is a Saturday
+February 29, 1400 is a Sunday
+2/30/1400 is an invalid date.
+March 1, 1400 is a Monday
+February 27, 1800 is a Thursday
+February 28, 1800 is a Friday
+2/29/1800 is an invalid date.
+2/30/1800 is an invalid date.
+March 1, 1800 is a Saturday
+February 27, 2000 is a Sunday
+February 28, 2000 is a Monday
+February 29, 2000 is a Tuesday
+2/30/2000 is an invalid date.
+March 1, 2000 is a Wednesday
+February 27, 2100 is a Saturday
+February 28, 2100 is a Sunday
+2/29/2100 is an invalid date.
+2/30/2100 is an invalid date.
+March 1, 2100 is a Monday
+February 27, 10000 is a Sunday
+February 28, 10000 is a Monday
+February 29, 10000 is a Tuesday
+2/30/10000 is an invalid date.
+March 1, 10000 is a Wednesday
+October 1, 1752 is a Sunday
+October 2, 1752 is a Monday
+November 1, 1752 is a Wednesday

@@ -74,9 +74,9 @@ const double PI = 2.0 * acos(0.0);
 TEMPLATE inline T sqr(T n) { return n * n; }
 TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
 TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
-TEMPLATE T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p>>1)); if(p&1) res*=n; return res; } }
-TEMPLATE T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p>>1, m))%m; if(p&1) r = (r*n)%m; return r; } }
-TEMPLATE T exgcd(T a,T b,T& x,T& y) { if(!b) { x=1; y=0; return a; } else { T g = exgcd(b, a%b, y, x); y -= (a/b)*x; return g; } }
+TEMPLATE T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p >> 1)); if(p & 1) res *= n; return res; } }
+TEMPLATE T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p >> 1, m)) % m; if(p & 1) r = (r * n) % m; return r; } }
+TEMPLATE T exgcd(T a, T b, T& x, T& y) { if(!b) { x = 1; y = 0; return a; } else { T g = exgcd(b, a % b, y, x); y -= (a / b) * x; return g; } }
 TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
 TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
 TEMPLATE inline string tostring(T n) { stringstream ss; ss << n; return ss.str(); }
@@ -86,72 +86,84 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 int test, cas = 1;
 
 int n, m;
-vii num;
-vii res;
-bool flag[100];
+int num[10];
+vii sum, bval;
+int mat[10][10];
 
 bool check()
 {
-    vii tmp;
+    vii test;
     REP(i, 0, n)
     REP(j, i + 1, n)
-    tmp.pb(res[i] + res[j]);
-    
-    ssort(tmp);
+    test.pb(num[i] + num[j]);
+
+    ssort(test);
     REP(i, 0, m)
     {
-        if(num[i] != tmp[i]) 
-            return false;
+        if(test[i] != sum[i]) return false;
     }
-    
     return true;
-} 
+}
 
-bool solve()
+bool process()
 {
-    clr(flag);
-    res.clear();
-    
-    bool first = false;
-    int t = 0, fi = 2;
-    
-    REP(i, 1, m)
-    { 
-        if(flag[i] || flag[i - 1]) continue;
-        
-        REP(j, i + 1, m)
-        { 
-            if(t == n - 2) break;
-            if(flag[j]) continue; 
-            
-            int x = num[i] + num[i - 1];
-            REP(k, j + 1, m)
+    clr(mat);
+    REP(i, 0, n - 1)
+    {
+        mat[i][0] = 1;
+        mat[i][i + 1] = 1;
+    }
+    mat[n - 1][n - 2] = 1;
+    mat[n - 1][n - 1] = 1;
+
+    //elimination
+    REP(k, 0, n - 1)
+    {
+        REP(i, k + 1, n)
+        {
+            if(mat[i][k] % mat[k][k]) return false;
+            int f = mat[i][k] / mat[k][k];
+            REP(j, k, n)
             {
-                if(flag[k]) continue;
-                if(!((x - num[k]) & 1))
-                {
-                    flag[k] = 1;
-                    x = (x - num[k]) / 2; 
-                    res.pb(num[i - 1] - x);
-                    if(!first)
-                    {
-                        first = true;
-                        fi = k;
-                    }
-                    ++t;
-                    break;
-                }
+                mat[i][j] -= mat[k][j] * f;
             }
+            bval[i] -= bval[k] * f;
         }
     }
-    
-    if(!first) return false;
-    
-    ssort(res);
-    res.insert(res.begin(), num[fi] - res[0]);
-    res.insert(res.begin(), num[0] - res[0]);
-    
-    return (n == res.size()) && check();
+
+    //substitution
+    if(bval[n - 1] % mat[n - 1][n - 1]) return false;
+    num[n - 1] = bval[n - 1] / mat[n - 1][n - 1];
+    RREPE(i, n - 2, 0)
+    {
+        int v = bval[i];
+        REP(j, i + 1, n)
+        {
+            v -= mat[i][j] * num[j];
+        }
+        if(v % mat[i][i]) return false;
+        num[i] = v / mat[i][i];
+    }
+
+    return check();
+}
+
+bool backtrack(int p)
+{
+    if(bval.size() + 1 == n)
+    {
+        bval.pb(sum[m - 1]);
+        if(process()) return true;
+        bval.pp();
+        return false;
+    }
+    if(p == m - 1) return false;
+
+    if(backtrack(p + 1)) return true;
+    bval.pb(sum[p]);
+    if(backtrack(p + 1)) return true;
+    bval.pp();
+    return false;
 }
 
 int main()
@@ -159,28 +171,31 @@ int main()
     int x;
     while(sf1(n) == 1)
     {
-        num.clear();
-        
-        m = n * (n - 1) / 2;
+        sum.clear();
+        bval.clear();
+
+        m = (n * (n - 1)) >> 1;
         REP(i, 0, m)
         {
             sf1(x);
-            num.pb(x);
+            sum.pb(x);
         }
-        
-        ssort(num);
-        
-        if(!solve())
+        ssort(sum);
+
+        bval.pb(sum[0]);
+        if(backtrack(1))
         {
-            puts("Impossible"); 
-            continue;
-        } 
-        
-        printf("%d", res[0]);
-        REP(i, 1, res.size())
-        printf(" %d", res[i]);
-        putchar('\n');
+            sort(num, num + n);
+            printf("%d", num[0]);
+            REP(i, 1, n)
+            printf(" %d", num[i]);
+            putchar('\n');
+        }
+        else
+        {
+            puts("Impossible");
+        }
     }
-    
+
     return 0;
 }
