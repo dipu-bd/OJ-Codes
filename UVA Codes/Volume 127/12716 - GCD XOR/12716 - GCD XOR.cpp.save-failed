@@ -85,12 +85,48 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+#define SIZ 500
+
+int res[SIZ + 10];
+
+void build()
+{
+    for(int i = 1; i * i <= SIZ; ++i)
+    {
+
+    }
+}
+
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    int n = 500, res = 0;
+
+
+
+    printf("[%d = %d]\n", n, res);
 
     return 0;
 }
+
+/*
+[1 = 0]
+[2 = 0]
+[3 = 1]
+[4 = 1]
+[5 = 2]
+[6 = 3]
+[7 = 4]
+[8 = 4]
+[9 = 5]
+[10 = 6]
+[11 = 7]
+[12 = 8]
+[13 = 9]
+[14 = 10]
+[15 = 13]
+[16 = 13]
+[17 = 14]
+[18 = 15]
+[19 = 16]
+[20 = 17]
+*/

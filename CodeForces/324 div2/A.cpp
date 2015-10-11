@@ -85,6 +85,31 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+string num;
+
+int getmod(int t)
+{
+    int res = 0;
+    loop(it, num)
+    {
+        res = (res * 10 + (*it - '0')) % t;
+    }
+    return res;
+}
+
+bool add(int p)
+{
+    int r = p;
+    rloop(it, num)
+    {
+        r += (*it - '0');
+        *it = (r % 10) + '0';
+        r /= 10;
+        if(!r) break;
+    }
+    return (r != 0);
+}
+
 int main()
 {
 #ifdef LOCAL
@@ -92,5 +117,23 @@ int main()
     //freopen("output.txt", "w", stdout);
 #endif
 
+    int n, t;
+    cin >> n >> t;
+
+    num = "1" + string(n - 1, '0');
+    int p = t - getmod(t);
+
+    if(p == 0)
+    {
+        puts(num.data());
+    }
+    else
+    {
+        bool r = add(p);
+        if(r) puts("-1");
+        else puts(num.data());
+    }
+
     return 0;
 }
+

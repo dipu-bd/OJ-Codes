@@ -83,14 +83,16 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 //const int oo = 1 << 30;
 //const int mod = 1000000007;
 
-int test, cas = 1;
+int test, cas = 1; 
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
-
+    int a, b;
+    while(sf2(a, b) == 2)
+    {
+        if(a == b) printf("%d\n", a);
+        else printf("%d\n", max(a, b));
+    }
+    
     return 0;
 }

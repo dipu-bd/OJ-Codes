@@ -85,12 +85,104 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+struct node
+{
+    int m; //minimum number
+    int p; //position
+    int v; //lazy value
+};
+
+#define SIZ 100005
+int arr[SIZ];
+node tree[SIZ << 2];
+
+void setmin(int nod, int left, int right)
+{
+    if(tree[right].m <= tree[left].m)
+    {
+        tree[nod].m = tree[right].m;
+        tree[nod].p = tree[right].p;
+    }
+    else
+    {
+        tree[nod].m = tree[left].m;
+        tree[nod].p = tree[left].p;
+    }
+}
+
+void relax(int nod, int left, int right)
+{
+    if(tree[nod].v == 0)
+        return;
+
+    tree[left].m -= tree[nod].v;
+    tree[right].m -= tree[nod].v;
+    tree[left].v += tree[nod].v;
+    tree[right].v += tree[nod].v;
+    tree[nod].v = 0;
+    setmin(nod, left, right);
+}
+
+void build(int nod, int b, int e)
+{
+    if(b == e)
+    {
+        tree[nod].m = arr[b];
+        tree[nod].p = b;
+        tree[nod].v = 0;
+        return;
+    }
+
+    int m = (b + e) >> 1;
+    int left = nod << 1;
+    int right = left + 1;
+
+    build(left, b, m);
+    build(right, m + 1, e);
+
+    tree[nod].v = 0;
+    setmin(nod, left, right);
+}
+
+void update(int nod, int b, int e, int i, int j)
+{
+    if(i <= b && e <= j)
+    {
+        tree[nod].
+        return;
+    }
+
+    int m = (b + e) >> 1;
+    int left = nod << 1;
+    int right = left + 1;
+
+    relax(nod, left, right);
+    if(i <= m) update(left, b, m, i, j);
+    if(j > m) update(right, m + 1, e, i, j);
+
+}
+
 int main()
 {
 #ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 #endif
+
+    int n;
+
+    sf1(test);
+    while(test--)
+    {
+        sf1(n);
+        REP(i, 0, n)
+        sf1(arr[i]);
+
+        build();
+
+
+        printf("Case %d: %d\n", cas++, ans);
+    }
 
     return 0;
 }

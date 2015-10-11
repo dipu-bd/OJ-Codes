@@ -39,7 +39,7 @@ typedef vector<pii> vpii;
 #define memsz(a,b,n) memset(a, b, n * sizeof(*a))
 #define REP(i, a, n) for(int i = a; i < n; ++i)
 #define REPE(i, a, n) for(int i = a; i <= n; ++i)
-#define REPNE(i, a, n) for(int i = a;  i >= n; --i)
+#define REPENE(i, a, n) for(int i = a;  i >= m; --i)
 //input-output
 #define sf scanf
 #define pf printf
@@ -47,10 +47,6 @@ typedef vector<pii> vpii;
 #define sf2(a, b) scanf("%d %d", &a, &b)
 #define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c)
 #define sf4(a, b, c, d) scanf("%d %d %d %d", &a, &b, &c, &d)
-#define deb1(a) cout << a << "\n"
-#define deb2(a,b) cout << a << " " << b << "\n"
-#define deb3(a,b,c) cout << a << " " << b << " " << c << "\n"
-#define deb4(a,b,c,d) cout << a << " " << b << " " << c << " " << d << "\n"
 //useful with graphs
 #define fr first
 #define sc second
@@ -88,9 +84,49 @@ int test, cas = 1;
 int main()
 {
 #ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 #endif
+
+
+    int n, x;
+    vector<int> arr;
+
+    sf1(n);
+    REP(i, 0, n)
+    {
+        sf1(x);
+        arr.pb(x);
+    }
+
+
+    set<int> res;
+    loop(it, arr)
+    {
+        x = *it;
+        while(!(x & 1))
+        {
+            x >>= 1;
+        }
+        while(x % 3 == 0)
+        {
+            x /= 3;
+        }
+        if(res.size() <= 1)
+        {
+            res.insert(x);
+        }
+        if(res.size() > 1) break;
+    }
+
+    if(res.size() <= 1)
+    {
+        puts("Yes");
+    }
+    else
+    {
+        puts("No");
+    }
 
     return 0;
 }

@@ -11,6 +11,8 @@
 @del *.o /F /S /Q
 @echo Deleting all 'SAVE' files
 @del *.save /F /S /Q
+@echo Deleting all 'CBTEMP' files
+@del *.cbtemp /F /S /Q
 
 @echo _____________________________________
-@echo All EXE and O files has been cleared.
+@echo All EXE, O, Save, CBTemp files has been cleared.

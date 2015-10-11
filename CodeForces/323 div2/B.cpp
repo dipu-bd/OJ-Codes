@@ -1,4 +1,4 @@
-﻿/*==================================
+/*==================================
  Author : Sudipto Chandra (Dipu)
  Email  : dipu.sudipta@gmail.com
  University : SUST
@@ -83,9 +83,50 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 //const int oo = 1 << 30;
 //const int mod = 1000000007;
 
-int test, cas = 1; 
+int test, cas = 1;
+
+
+vii arr;
+int n, x;
 
 int main()
 {
+    cin >> n;
+    REP(i, 0, n)
+    {
+        cin >> x;
+        arr.pb(x);
+    }
+
+    int p = 0;
+    int col = 0;
+    int dir = 1;
+    int ans = 0;
+    while(col < n)
+    {
+        if(arr[p] <= col)
+        {
+            ++col;
+            arr[p] = INT_MAX;
+        }
+        if(col == n) break;
+
+        if(p == n - 1 && dir == 1)
+        {
+            ++ans;
+            dir = -1;
+        }
+        if(p == 0 && dir == -1)
+        {
+            ++ans;
+            dir = 1;
+        }
+        p += dir;
+
+    }
+
+    cout << ans << endl;
+
     return 0;
 }
+

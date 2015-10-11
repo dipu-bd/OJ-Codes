@@ -87,10 +87,48 @@ int test, cas = 1;
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    sf1(test);
+    while(test--)
+    {
+        int A, B, C;
+        sf3(A, B, C);
+
+        bool solved = 0;
+        for(int x = 1; x * x < C; x++)
+        {
+            if(B % x != 0) continue;
+            int d = C - x * x - 2 * B / x;
+            if(d < 0) continue;
+
+            int y = ((int)(A - x + sqrt(d))) / 2;
+            int z = ((int)(A - x - sqrt(d))) / 2;
+
+            if(x + y + z != A) continue;
+            if(x * y * z != B) continue;
+            if(x * x + y * y + z * z != C) continue;
+
+            set<int> arr;
+            arr.insert(x);
+            arr.insert(y);
+            arr.insert(z);
+            if(arr.size() != 3) continue;
+
+            loop(it, arr)
+            {
+                if(it != arr.begin())
+                    putchar(' ');
+                printf("%d", *it);
+            }
+            putchar('\n');
+
+            solved = 1;
+            break;
+        }
+        if(!solved)
+        {
+            puts("No solution.");
+        }
+    }
 
     return 0;
 }

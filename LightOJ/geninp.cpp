@@ -87,10 +87,41 @@ int test, cas = 1;
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    freopen("input.txt", "w", stdout);
+
+    vector<int> answer;
+
+    int test = 100;
+    printf("%d\n", test);
+    REP(i, 0, test)
+    {
+        int n = 1 + (rand() % 100);
+
+        vector<int> vt;
+        REPE(i, 1, n)
+        vt.push_back(i);
+
+        random_shuffle(vt.begin(), vt.end());
+        answer.push_back(vt.front());
+
+        printf("%d\n", n);
+        REP(i, 0, n)
+        {
+            int p = 0;
+            REP(j, 0, i)
+            if(vt[j] > vt[i]) ++p;
+            printf("%d ", p);
+        }
+        puts("");
+    }
+
+
+    freopen("answer.txt", "w", stdout);
+
+    REPE(i, 1, 100)
+    {
+        printf("Case %d: %d\n", i, answer[i - 1]);
+    }
 
     return 0;
 }

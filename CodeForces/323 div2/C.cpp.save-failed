@@ -85,12 +85,63 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+int n, x;
+map<int, int> freq;
+
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    cin >> n;
+    REP(i, 0, n)
+    REP(j, 0, n)
+    {
+        cin >> x;
+        freq[x]++;
+    }
+
+    vii ans;
+    int p = 0;
+    for(auto i : freq)
+    {
+        if(i.fr != freq.rbegin()->fr && (i.sc & 1))
+        {
+            ++p;
+            --i.sc;
+            ans.pb(i.fr);
+        }
+    }
+
+    while(p < n && freq.size())
+    {
+        ++p;
+        --freq.rbegin()->sc;
+        int v = freq.rbegin()->fr;
+        ans.pb(freq.rbegin()->fr);
+        if(p == n) break;
+
+        REP(i, 0, ans.size())
+        {
+            REP(j, 0, ans.size())
+            {
+                if(i == j) continue;
+                freq[gcd(i, j)]--;
+            }
+        }
+
+        map<int, int> other;
+        for(auto i : freq)
+        {
+            if(i.sc > 0) other[i.fr] = i.sc;
+        }
+        freq = other;
+    }
+
+    for(auto x : ans)
+    {
+        printf("%d ", x);
+    }
+    puts("");
+
 
     return 0;
 }
+

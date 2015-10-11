@@ -87,10 +87,7 @@ int test, cas = 1;
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
 
     return 0;
 }
+

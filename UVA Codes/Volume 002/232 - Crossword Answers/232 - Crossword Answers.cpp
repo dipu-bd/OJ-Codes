@@ -87,10 +87,138 @@ int test, cas = 1;
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    int n,  m;
+    char mat[20][20];
+    int number[20][20];
+    map<int, string> res;
+
+    while(sf2(n, m) == 2, n)
+    {
+        //take input
+        clr(mat);
+        clr(number);
+        REP(i, 0, n)
+        scanf(" %s", mat[i]);
+
+        //across test
+        REP(i, 0, n)
+        {
+            bool add = 1;
+            REP(j, 0, m)
+            {
+                if(mat[i][j] == '*')
+                {
+                    add = 1;
+                    continue;
+                }
+                if(add)
+                {
+                    add = 0;
+                    number[i][j] = 1;
+                }
+            }
+        }
+
+        //down test
+        REP(j, 0, m)
+        {
+            bool add = 1;
+            REP(i, 0, n)
+            {
+                if(mat[i][j] == '*')
+                {
+                    add = 1;
+                    continue;
+                }
+                if(add)
+                {
+                    add = 0;
+                    number[i][j] = 1;
+                }
+            }
+        }
+
+        //numbering
+        int num = 1;
+        REP(i, 0, n)
+        {
+            REP(j, 0, m)
+            {
+                if(number[i][j])
+                    number[i][j] = num++;
+            }
+        }
+
+        //printing
+        if(cas > 1) putchar('\n');
+        printf("puzzle #%d:\n", cas++);
+
+        //across print
+        res.clear();
+        REP(i, 0, n)
+        {
+            num = -1;
+            string add = "";
+            REP(j, 0, m)
+            {
+                if(mat[i][j] == '*')
+                {
+                    if(num != -1) res[num] = add;
+                    num = -1;
+                    continue;
+                }
+                if(num == -1)
+                {
+                    add.clear();
+                    add.pb(mat[i][j]);
+                    num = number[i][j];
+                }
+                else
+                {
+                    add.pb(mat[i][j]);
+                }
+            }
+            if(num != -1) res[num] = add;
+        }
+        puts("Across");
+        loop(it, res)
+        {
+            printf("%3d.%s\n", it->fr, it->sc.data());
+        }
+
+        //down print
+        res.clear();
+        REP(j, 0, m)
+        {
+            num = -1;
+            string add = "";
+            REP(i, 0, n)
+            {
+                if(mat[i][j] == '*')
+                {
+                    if(num != -1) res[num] = add;
+                    num = -1;
+                    continue;
+                }
+                if(num == -1)
+                {
+                    add.clear();
+                    add.pb(mat[i][j]);
+                    num = number[i][j];
+                }
+                else
+                {
+                    add.pb(mat[i][j]);
+                }
+            }
+            if(num != -1) res[num] = add;
+        }
+        puts("Down");
+        loop(it, res)
+        {
+            printf("%3d.%s\n", it->fr, it->sc.data());
+        }
+    }
 
     return 0;
 }

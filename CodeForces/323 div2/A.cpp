@@ -85,12 +85,26 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+int n, x, y;
+bool hor[60];
+bool ver[60];
+
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    cin >> n;
+    int m = n * n;
+
+    REPE(i, 1, m)
+    {
+        cin >> x >> y;
+        if(!(hor[x] || ver[y]))
+        {
+            hor[x] = 1;
+            ver[y] = 1;
+            printf("%d ", i);
+        }
+    }
 
     return 0;
 }
+

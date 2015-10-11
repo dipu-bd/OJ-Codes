@@ -81,7 +81,7 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 /*------------------------------------------------------------------------------------*/
 
 //const int oo = 1 << 30;
-//const int mod = 1000000007;
+const ll mod = 1000000007ll;
 
 int test, cas = 1;
 
@@ -92,5 +92,14 @@ int main()
     //freopen("output.txt", "w", stdout);
 #endif
 
+    ll n;
+    cin >> n;
+
+    ll ans = bigmod(3ll, 3 * n, mod);
+    ans = pmod(ans - bigmod(7ll, n, mod), mod);
+
+    cout << pmod(ans, mod) << endl;
+
     return 0;
 }
+

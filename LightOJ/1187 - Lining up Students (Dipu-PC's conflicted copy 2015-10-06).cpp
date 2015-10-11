@@ -85,12 +85,61 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+int arr[100005];
+int pos[100005];
+priority_queue<int> pq;
+
+int top()
+{
+    return -pq.top();
+}
+void pop(int i, int c)
+{
+    pq.pop();
+    pos[]
+}
+void push(int v)
+{
+    pq.push(-v);
+}
+
 int main()
 {
 #ifdef LOCAL
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
 #endif
+
+    int n;
+
+    sf1(test);
+    while(test--)
+    {
+        pq = priority_queue<int>();
+
+        sf1(n);
+        REP(i, 0, n)
+        sf1(arr[i]);
+
+        int cur = 0;
+        REPNE(i, n - 1, 0)
+        {
+            if(arr[i])
+            {
+                push(arr[i] + cur);
+                continue;
+            }
+
+            ++cur;
+            while(pq.size() && top() == cur)
+            {
+                ++cur;
+                pop();
+            }
+        }
+
+        printf("Case %d: %d\n", cas++, cur);
+    }
 
     return 0;
 }

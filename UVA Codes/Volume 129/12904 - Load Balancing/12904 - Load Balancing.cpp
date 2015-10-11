@@ -85,12 +85,52 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 
 int test, cas = 1;
 
+#define SIZ 10010
+
+const int lim = 160;
+
+int n, x;
+int arr[lim + 10];
+
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+
+    sf1(test);
+    while(test--)
+    {
+        sf1(n);
+
+        clr(arr);
+        REP(i, 0, n)
+        {
+            sf1(x);
+            arr[x]++;
+        }
+
+        REPE(i, 1, lim)
+        arr[i] += arr[i - 1];
+
+
+        int ra, rb, rc;
+        ll m = LONG_LONG_MAX;
+
+        REP(a, 0, lim)
+        REP(b, a + 1, lim)
+        REP(c, b + 1, lim)
+        {
+            ll d = abs(4ll * arr[a] - n);
+            d += abs(4ll * (arr[b] - arr[a]) - n);
+            d += abs(4ll * (arr[c] - arr[b]) - n);
+            d += abs(4ll * (arr[lim] - arr[c]) - n);
+            if(d < m)
+            {
+                m = d;
+                ra = a, rb = b, rc = c;
+            }
+        }
+
+        printf("Case %d: %d %d %d\n", cas++, ra, rb, rc);
+    }
 
     return 0;
 }

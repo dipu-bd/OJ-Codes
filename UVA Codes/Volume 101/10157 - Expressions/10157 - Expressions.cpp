@@ -11,8 +11,7 @@
 #include <math.h>
 #include <limits.h>
 #include <ctype.h>
-//#include <assert.h>
-//#include <time.h>
+#include <assert.h>
 //cpp headers
 #include <iostream>
 #include <iomanip>
@@ -36,6 +35,7 @@ typedef pair<ll, ll> pll;
 typedef vector<int> vi;
 typedef vector<int> vii;
 typedef vector<pii> vpii;
+typedef map<int, int> mpii;
 //always useful
 #define gcd(a,b) __gcd(a,b)
 #define clr(a) memset(a, 0, sizeof(a))
@@ -50,12 +50,8 @@ typedef vector<pii> vpii;
 #define pf printf
 #define sf1(a) scanf("%d", &a)
 #define sf2(a, b) scanf("%d %d", &a, &b)
-#define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c);
-#define sf4(a, b, c, d) scanf("%d %d %d %d", &a, &b, &c, &d);
-#define debug1(a) cout << a << endl
-#define debug2(a,b) cout << a << " " << b << endl
-#define debug3(a,b,c) cout << a << " " << b << " " << c << endl
-#define debug4(a,b,c,d) cout << a << " " << b << " " << c << " " << d << endl
+#define sf3(a, b, c) scanf("%d %d %d", &a, &b, &c)
+#define sf4(a, b, c, d) scanf("%d %d %d %d", &a, &b, &c, &d)
 //useful with graphs
 #define fr first
 #define sc second
@@ -64,52 +60,61 @@ typedef vector<pii> vpii;
 #define mp make_pair
 #define ins insert
 #define IT iterator
-#define allof(v) v.begin(), v.end()
+#define all(v) v.begin(), v.end()
 #define ssort(v) stable_sort(v.begin(), v.end())
 #define LB lower_bound
 #define UB upper_bound
 #define POPC __builtin_popcount
 #define loop(i, x) for(__typeof((x).begin()) i=(x).begin(); i!=(x).end(); ++i)
 #define rloop(i, x) for(__typeof((x).rbegin()) i=(x).rbegin(); i!=(x).rend(); ++i)
+#define TEMPLATE template<typename T>
 //variables and functions
+const double EPS = 1E-10;
 const double PI = 2.0 * acos(0.0);
-const double EXP1 = exp(1);
-template<typename T> inline T sqr(T n) { return n * n; }
+TEMPLATE inline T sqr(T n) { return n * n; }
+TEMPLATE inline T pmod(T n, T m) { return ((n % m) + m) % m; }
+TEMPLATE inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
+TEMPLATE T power(T n, ll p) { if(!p) return 1; else { T res = sqr(power(n, p>>1)); if(p&1) res*=n; return res; } }
+TEMPLATE T bigmod(T n, ll p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p>>1, m))%m; if(p&1) r = (r*n)%m; return r; } }
+TEMPLATE T exgcd(T a,T b,T& x,T& y) { if(!b) { x=1; y=0; return a; } else { T g = exgcd(b, a%b, y, x); y -= (a/b)*x; return g; } }
+TEMPLATE T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
+TEMPLATE inline T extract(const string& s, T ret) { stringstream ss(s); ss >> ret; return ret; }
+TEMPLATE inline string tostring(T n) { stringstream ss; ss << n; return ss.str(); }
 inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
-template<typename T> inline T pmod(T n, T m) { return ((n % m) + m) % m; }
-template<typename T> inline T lcm(T a, T b) { return a * (b / gcd(a, b)); }
-template<typename T> T gcd_iter(T a, T b) { while(b) b ^= a ^= b ^= a %= b; return a; }
-template<typename T> T power(T n, int p) { if(!p) return 1; else { T res = sqr(power(n, p >> 1)); if(p & 1) res *= n; return res; } }
-template<typename T> T bigmod_iter(T b, T p, T m) { T r = 1; while(p > 0) { if(p & 1) r = (r * b) % m; p >>= 1; b = (b * b) % m; } return r; }
-template<typename T> T bigmod(T n, int p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p >> 1, m)) % m; if(p & 1) r = (r * n) % m; return r; } }
-template<typename T> T exgcd(T a, T b, T& x, T& y) { if(!b) { x = 1; y = 0; return a; } else { T g = exgcd(b, a % b, y, x); y -= (a / b) * x; return g; } }
-template<typename T> T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
 /*------------------------------------------------------------------------------------*/
 
 int test, cas = 1;
-
-bool check[100005];
+//const int oo = 1 << 30;
+//const int mod = 1000000007;
 
 int main()
 {
-    ll a, m;
-    cin >> a >> m;
-
-    a %= m;
-    bool no = 0;
-    REPE(i, -10, m)
+    ll fact[350];
+    fact[0] = 1;
+    REPE(i, 1, 310)
+    fact[i] = i * fact[i - 1];
+    
+    int n, p;
+    while(sf2(n, p) == 2)
     {
-        bool& l = check[a % m];
-        if(a == 0) break;
-        a = (2 * a) % m;
-        if(l) no = 1;
-        if(no) break;
-        l = true;
+        if((n & 1) || n < p + p)
+        {
+            puts("0");
+        }
+        else 
+        {
+            n -= p + p;
+            if(n == 0)
+            {
+                puts("1");
+            }
+            else
+            {
+                ll res = (n + 1) * fact[n - 2];
+                printf("%lld\n", res);
+            }
+        }
     }
-
-    if(no) puts("Yes");
-    else puts("No");
 
     return 0;
 }
-

@@ -87,10 +87,76 @@ int test, cas = 1;
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    char ch;
+    int res[10];
+    int n, m, x, y;
+    int board[10][10][2];
+
+    const int RIGHT = 0, DOWN = 1;
+
+    while(sf2(n, m) == 2)
+    {
+        clr(board);
+        REP(i, 0, m)
+        {
+            scanf(" %c", &ch);
+            sf2(x, y);
+            if(ch == 'H')
+            {
+                board[x - 1][y - 1][RIGHT] = 1;
+            }
+            else
+            {
+                board[y - 1][x - 1][DOWN] = 1;
+            }
+        }
+
+        clr(res);
+        REP(i, 0, n)
+        REP(j, 0, n)
+        REP(k, 1, n)
+        {
+            if(i + k >= n || j + k >= n) break;
+
+            x = i + k;
+            y = j + k;
+            bool ok = 1;
+            REP(p, j, y) //right to left
+            {
+                if(!ok) break;
+                if(!board[i][p][RIGHT]) ok = 0;
+                if(!board[x][p][RIGHT]) ok = 0;
+            }
+            REP(p, i, x) //up to down
+            {
+                if(!ok) break;
+                if(!board[p][j][DOWN]) ok = 0;
+                if(!board[p][y][DOWN]) ok = 0;
+            }
+
+            if(ok) res[k]++;
+        }
+
+        if(cas > 1)
+        {
+            puts("\n**********************************\n"); //this is fixed size
+        }
+        printf("Problem #%d\n\n", cas++);
+
+        bool found = 0;
+        REP(i, 1, n)
+        {
+            if(res[i])
+            {
+                found = 1;
+                printf("%d square (s) of size %d\n", res[i], i);
+            }
+        }
+        if(!found)
+        {
+            puts("No completed squares can be found.");
+        }
+    }
 
     return 0;
 }

@@ -80,17 +80,104 @@ TEMPLATE inline string tostring(T n) { stringstream ss; ss << n; return ss.str()
 inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 /*------------------------------------------------------------------------------------*/
 
-//const int oo = 1 << 30;
+const int oo = 1 << 30;
 //const int mod = 1000000007;
 
 int test, cas = 1;
 
+int Ca, Cb, N;
+int save[1010][1010];
+int _save[1010][1010];
+
+int recur(int a = 0, int b = 0)
+{
+    if(b == N)
+    {
+        return 0;
+    }
+
+    int& dp = _save[a][b];
+    int& dpc = save[a][b];
+    if(dpc == cas) return dp;
+    dpc = cas;
+    dp = oo;
+
+    //fill A
+    dp = min(dp, 1 + recur(Ca, b));
+    //fill B
+    dp = min(dp, 1 + recur(a, Cb));
+    //empty A
+    dp = min(dp, 1 + recur(0, b));
+    //empty B
+    dp = min(dp, 1 + recur(a, 0));
+    //pour A B
+    dp = min(dp, 1 + recur(a + b - min(a + b, Cb), min(a + b, Cb)));
+    //pour B A
+    dp = min(dp, 1 + recur(min(a + b, Ca), a + b - min(a + b, Ca)));
+
+    return dp;
+}
+
+void printpath(int a = 0, int b = 0)
+{
+    if(b == N)
+    {
+        puts("success");
+        return;
+    }
+
+    int dp = recur(a, b);
+    //fill A
+    if(dp == 1 + recur(Ca, b))
+    {
+        puts("fill A");
+        printpath(Ca, b);
+        return;
+    }
+    //fill B
+    if(dp == 1 + recur(a, Cb))
+    {
+        puts("fill B");
+        printpath(a, Cb);
+        return;
+    }
+    //empty A
+    if(dp == 1 + recur(0, b))
+    {
+        puts("empty A");
+        printpath(0, b);
+        return;
+    }
+    //empty B
+    if(dp == 1 + recur(a, 0))
+    {
+        puts("empty B");
+        printpath(a, 0);
+        return;
+    }
+    //pour A B
+    if(dp == 1 + recur(a + b - min(a + b, Cb), min(a + b, Cb)))
+    {
+        puts("pour A B");
+        printpath(a + b - min(a + b, Cb), min(a + b, Cb));
+        return;
+    }
+    //pour B A
+    if(dp == 1 + recur(min(a + b, Ca), a + b - min(a + b, Ca)))
+    {
+        puts("pour B A");
+        printpath(min(a + b, Ca), a + b - min(a + b, Ca));
+        return;
+    }
+}
+
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
+    while(sf3(Ca, Cb, N) == 3)
+    {
+        ++cas;
+        printpath();
+    }
 
     return 0;
 }

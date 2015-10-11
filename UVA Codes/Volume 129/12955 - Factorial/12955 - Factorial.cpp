@@ -83,14 +83,31 @@ inline double hypot(double x, double y) { return sqrt(sqr(x) + sqr(y)); }
 //const int oo = 1 << 30;
 //const int mod = 1000000007;
 
-int test, cas = 1;
+int test, cas = 1; 
+
+int fact[20];
 
 int main()
 {
-#ifdef LOCAL
-    //freopen("input.txt", "r", stdin);
-    //freopen("output.txt", "w", stdout);
-#endif
-
+    fact[0] = 1;
+    REP(i, 1, 10)
+    fact[i] = i * fact[i - 1];
+    
+    int n;
+    while(sf1(n) == 1)
+    {
+        int k = 0;
+        REPNE(i, 9, 0)
+        {
+            if(n == 0) break;
+            while(n >= fact[i])
+            {
+                ++k;
+                n -= fact[i];
+            }
+        }
+        printf("%d\n", k);
+    }
+    
     return 0;
 }
