@@ -1,4 +1,4 @@
-/* Prime Sieve using BitSet
+/* Prime Sieve
 Approximate Runtime :
     for n = 10 ^ 9 = 1000000000 : 16.100 sec
     for n = 10 ^ 8 = 100000000 : 1.445 sec

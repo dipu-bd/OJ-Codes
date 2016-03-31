@@ -1,176 +1,69 @@
-/*============================
- /\u7h0r : 5ud!p70 ch@ndr@ d@5
- =============================*/
-//C headers
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <limits.h>
-#include <ctype.h>
-#include <assert.h>
-//cpp headers
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <set>
-#include <map>
-#include <stack>
-#include <deque>
-#include <list>
-//#include <bitset>
+/*==================================
+Author : Sudipto Chandra (Dipu)
+Email  : dipu.sudipta@gmail.com
+University : SUST
+===================================*/
+#include <bits/stdc++.h>
 using namespace std;
 //typedefs
 typedef long long ll;
-typedef unsigned long long ull;
 typedef pair<int, int> pii;
-typedef vector<int> vii;
 //always useful
 #define gcd(a,b) __gcd(a,b)
-#define clr(a) memset(a, 0, sizeof(a))
 #define mem(a,b) memset(a, b, sizeof(a))
-#define REP(i, a, n) for(int i = a; i < n; ++i)
-#define RREP(i, a, n) for(int i = a; i > n; --i)
-#define REPE(i, a, n) for(int i = a; i <= n; ++i)
-#define RREPE(i, a, n) for(int i = a; i >= n; --i)
-//useful with graphs
-#define fr first
-#define sc second
-#define pb push_back
-#define pp pop_back
-#define mp make_pair
-#define IT iterator
-#define all(v) v.begin(), v.end()
-#define ssort(v) stable_sort(v.begin(), v.end())
-#define LB lower_bound
-#define UB upper_bound
-#define loop(i, x) for(__typeof((x).begin()) i=(x.begin()); i!=(x).end(); ++i)
-#define rloop(i, x) for(__typeof((x).rbegin()) i=(x.rbegin()); i!=(x).rend(); ++i)
-/*--------------------------------------------------------------------------------*/
+#define loop(i, x) for(__typeof((x).begin()) i=(x).begin(); i!=(x).end(); ++i)
+#define rloop(i, x) for(__typeof((x).rbegin()) i=(x).rbegin(); i!=(x).rend(); ++i)
+//variables and functions
+template<typename T> inline T sqr(T n) { return n * n; }
+template<typename T> inline T pmod(T n, T m) { return ((n % m) + m) % m; }
+template<typename T> T power(T n, ll p) { if(!p) return 1; else { T res = sqr(power(n, p >> 1)); if(p & 1) res *= n; return res; } }
+template<typename T> T bigmod(T n, ll p, T m) { if(!p) return 1; else { T r = sqr(bigmod(n, p >> 1, m)) % m; if(p & 1) r = (r * n) % m; return r; } }
+template<typename T> T exgcd(T a, T b, T& x, T& y) { if(!b) { x = 1; y = 0; return a; } else { T g = exgcd(b, a % b, y, x); y -= (a / b) * x; return g; } }
+template<typename T> T modinv(T a, T m) { T x, y; exgcd(a, m, x, y); return pmod(x, m); }
+/*------------------------------------------------------------------------------------*/
 
 int test, cas = 1;
 
-struct point
+struct POINT
 {
-    int x;
-    int y;
-    bool zero() { return !(x || y); }
+    ll x, y;
 };
 
-struct line
+inline ll sqdist(POINT a, POINT b)
 {
-    int A;
-    int B;
-    int C;
-
-    line(point a, point b)
-    {
-        int xd = a.x - b.x;
-        int yd = a.y - b.y;
-        A = yd;
-        B = -xd;
-        C = -a.x * yd + a.y * xd;
-    }
-
-    pii dist(point a)
-    {
-        int sum = A * A + B * B;
-        int den = sqrt(sum);
-        if(den * den != sum) return mp(0, 0);
-        den *= 2;
-        int num = abs(A * a.x + B * a.y + C);
-        int g = gcd(num, den);
-        num /= g, den /= g;
-        return mp(num, den);
-    }
-};
-
-int get(point& a, point& b, point& c, point& d)
-{
-    return scanf("%d %d %d %d %d %d %d %d",
-                 &a.x, &a.y, &b.x, &b.y, &c.x, &c.y, &d.x, &d.y);
+    return sqr(a.x - b.x) + sqr(a.y - b.y);
 }
 
-bool intersect(line& a, line& b)
+inline ll getarea(POINT a, POINT b, POINT c, POINT d)
 {
-    return (a.A * b.B - b.A * a.B) != 0;
+    return (a.x * b.y + b.x * c.y + c.x * d.y + d.x * a.y) -
+           (a.x * d.y + b.x * a.y + c.x * b.y + d.x * c.y);
 }
-
-bool comp(const pii& a, const pii& b)
-{
-    return (a.fr * b.sc <= b.fr * a.sc);
-}
-
 
 int main()
 {
-#ifdef LOCAL
-    freopen("12779.inp", "r", stdin);
-#endif // LOCAL
-
-    point a, b, c, d;
-    while(get(a, b, c, d) != EOF)
+    POINT a, b, c, d;
+    while(scanf("%lld %lld %lld %lld %lld %lld %lld %lld",
+                &a.x, &a.y, &b.x, &b.y, &c.x, &c.y, &d.x, &d.y) == 8)
     {
-        if(a.zero() && b.zero() && c.zero() && d.zero()) break;
+        if(!(a.x || b.x || c.x || d.x || a.y || b.y || c.y || d.y)) break;
 
-        line ab(a, b);
-        line ad(a, d);
-        line ac(a, c);
-        line bc(b, c);
-        line bd(b, d);
-        line cd(c, d);
+        ll area = getarea(a, b, c, d);
+        ll ab = sqdist(a, b);
+        ll bc = sqdist(b, c);
+        ll up = area * area;
+        ll down = 16 * max(ab, bc);
 
-        pii rad = mp(0, 0);
-
-        if(!intersect(ab, cd))
+        if(down == 0)
         {
-            if(!intersect(ac, bd))
-            {
-                pii x = bd.dist(a);
-                pii y = cd.dist(a);
-                rad = comp(x, y) ? x : y;
-            }
-            else if(!intersect(ad, bc))
-            {
-                pii x = bc.dist(a);
-                pii y = cd.dist(a);
-                rad = comp(x, y) ? x : y;
-            }
-        }
-        else if(!intersect(ad, bc))
-        {
-            if(!intersect(ac, bd))
-            {
-                pii x = bd.dist(a);
-                pii y = bc.dist(a);
-                rad = comp(x, y) ? x : y;
-            }
-            else if(!intersect(ab, cd))
-            {
-                pii x = cd.dist(a);
-                pii y = bc.dist(a);
-                rad = comp(x, y) ? x : y;
-            }
-        }
-
-        rad.fr *= rad.fr;
-        rad.sc *= rad.sc;
-        if(rad.sc)
-        {
-            ll g = (rad.fr, rad.sc);
-            rad.fr /= g, rad.sc /= g;
-        }
-
-        if(rad.fr == 0 || rad.sc == 0)
-        {
-            printf("-1\n");
+            puts("-1");
         }
         else
         {
-            printf("(%d/%d)*pi\n", rad.fr, rad.sc);
+            ll g = gcd(up, down);
+            up /= g;
+            down /= g;
+            printf("(%lld/%lld)*pi\n", up, down);
         }
     }
 

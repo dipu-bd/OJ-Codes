@@ -87,8 +87,60 @@ int test, cas = 1;
 //const int oo = 1 << 30;
 //const int mod = 1000000007;
 
-int main()
+int n, dn;
+int xp[300];
+int yp[300];
+
+bool check(int A, int B)
 {
+    int a = 0, b = 0;
+    for(int i = 0; i < dn; ++i)
+    {
+        int t = A * xp[i] + B * yp[i];
+        if(t < 0)
+        {
+            ++a;
+        }
+        else if(t > 0)
+        {
+            ++b;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return (a == n && b == n);
+}
+
+int main()
+{ 
+    while(scanf("%d", &n) == 1 && n > 0)
+    {
+        dn = n + n;
+        for(int i = 0; i < dn; ++i)
+        {
+            scanf("%d %d", &xp[i], &yp[i]);
+        }
+        
+        pii r = mp(1, 0);
+        bool found = 0;
+        for(int A = -500; A <= 500; ++A)
+        { 
+            for(int B = -500; B <= 500; ++B)
+            {
+                if(check(A, B))
+                {
+                    r = mp(A, B);
+                    found = 1;
+                    break;
+                }
+            }
+            if(found) break;
+        }
+        
+        printf("%d %d\n", r.first, r.second);
+    }
 
     return 0;
 }

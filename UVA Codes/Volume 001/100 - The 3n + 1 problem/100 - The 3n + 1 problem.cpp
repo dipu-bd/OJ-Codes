@@ -1,28 +1,7 @@
 /*============================
- /\u7h0r : 5ud!p70 ch@ndr@ d@5
- =============================*/
-//C headers
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <limits.h>
-#include <ctype.h>
-//#include <assert.h>
-//#define <time.h>
-//cpp headers
-#include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <set>
-#include <map>
-#include <stack>
-#include <deque>
-#include <list>
-//#include <bitset>
+/\u7h0r : 5ud!p70 ch@ndr@ d@5
+=============================*/ 
+#include <bits/stdc++.h>
 using namespace std;
 //typedefs
 typedef long long ll;
@@ -80,11 +59,11 @@ int loopc(int n)
 {
     if(n <= 1) return 1;
     if(n <= MAX && save[n]) return save[n];
-
+    
     int cnt = 1;
     if(n & 1) cnt += loopc(3 * n + 1);
     else cnt += loopc(n >> 1);
-
+    
     if(n <= MAX) save[n] = cnt;
     return cnt;
 }
@@ -96,42 +75,56 @@ void build(int nod, int b, int e)
         tree[nod] = loopc(b);
         return;
     }
-
+    
     int m = (b + e) >> 1;
     build((nod << 1), b, m);
     build((nod << 1) + 1, 1 + m, e);
-
+    
     tree[nod] = max(tree[nod << 1], tree[(nod << 1) + 1]);
 }
 
 int query(int nod, int b, int e, int i, int j)
 {
     if(i <= b && e <= j) return tree[nod];
-
+    
     int res = 0;
     int m = (b + e) >> 1;
     if(i <= m) res = max(res, query((nod << 1), b, m, i, j));
     if(j > m) res = max(res, query((nod << 1) + 1, 1 + m, e, i, j));
-
+    
     return res;
 }
 
+#define MAXS 101010
+int va[MAXS];
+int vb[MAXS];
+int res[MAXS];
+
 int main()
-{
-    #ifdef LOCAL
-    freopen("input.txt", "r", stdin);
-    #endif // LOCAL
-
-    int a, b, x, y, lc;
+{ 
+    int sz, x, y, i;
     build(1, 1, SIZ);
-
-    while(sf2(a, b) == 2)
-    {
-        if(a < b) { x = a; y = b; }
-        else { x = b; y = a; }
-        lc = query(1, 1, SIZ, x, y);
-        printf("%d %d %d\n", a, b, lc);
+        
+    for(sz = 0; scanf("%d%d", va + sz, vb + sz) != EOF; ++sz);
+    
+    for(i = 0; i < sz; ++i)
+    { 
+        if(va[i] < vb[i]) 
+        { 
+            x = va[i]; 
+            y =  vb[i]; 
+        }
+        else 
+        { 
+            x =  vb[i]; 
+            y = va[i]; 
+        }
+        res[i] = query(1, 1, SIZ, x, y); 
     }  
+    for(i = 0; i < sz; ++i)
+    {
+        printf("%d %d %d\n", va[i], vb[i], res[i]);
+    }
     
     return 0;
 }

@@ -18,10 +18,6 @@ int compare(void *a, void *b)
 
 int main()
 {
-    #ifndef ONLINE_JUDGE
-    freopen("837_Light and Transparencies_01.inp","r",stdin);
-    #endif
-
     Points p[100];
 
     int t, i,nl;
